@@ -54,6 +54,14 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::get('/musteri/del/{id}', 'admin\MusteriController@destroy')->name('musteri_sil');
     Route::get('/musteri/edit/{id}', 'admin\MusteriController@edit')->name('musteri_duzenle');
     Route::post('/musteri/update/{id}', 'admin\MusteriController@update');
+
+
+    Route::get('/partigiris', 'admin\MusteriPartiGiris@index');
+    Route::post('/partigiris/detay', 'admin\MusteriPartiGiris@detay')->name('musteripartikaydet');
+    Route::post('/partigiris/kaydet', 'admin\MusteriPartiGiris@kaydet')->name('musteripartikaydet');
+
+
+
 });
 
 

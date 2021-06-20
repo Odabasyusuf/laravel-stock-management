@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,17 +14,25 @@
     <link href="{{url('/')}}/assets/admin/adminox/libs/c3/c3.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Footable css -->
-    <link href="{{url('/')}}/assets/admin/adminox/libs/footable/footable.core.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('/')}}/assets/admin/adminox/libs/footable/footable.core.min.css" rel="stylesheet"
+          type="text/css"/>
 
     <!-- Sweetalert css -->
-    <link href="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet"
+          type="text/css"/>
 
 
     <!-- App css -->
-    <link href="{{url('/')}}/assets/admin/adminox/css/bootstrap.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet"/>
+    <link href="{{url('/')}}/assets/admin/adminox/css/bootstrap.css" rel="stylesheet" type="text/css"
+          id="bootstrap-stylesheet"/>
 
     <link href="{{url('/')}}/assets/admin/adminox/css/icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="{{url('/')}}/assets/admin/adminox/css/app.css" rel="stylesheet" type="text/css" id="app-stylesheet"/>
+
+
+    <!-- Parti giris tablosu -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -38,11 +45,11 @@
     <header id="topnav">
         <!-- Topbar Start -->
     @include('layouts.admin.topnavigation')
-        <!-- end Topbar -->
+    <!-- end Topbar -->
 
         <!-- TopMenu Start -->
     @include('layouts.admin.topmenu')
-        <!-- end navbar-custom -->
+    <!-- end navbar-custom -->
     </header>
     <!-- End Navigation Bar-->
 
@@ -72,238 +79,180 @@
                 </div>
                 <!-- end page title -->
 
-
-                <!-- Clickable Wizard -->
-                <div class="row">
+                <div class="card-box">
                     <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="header-title">Parti Girişi</h4>
-                            <p class="sub-header">
+                        <div class="line line-dashed line-lg pull-in"></div>
+                            <form action="{{ route('admin.musteripartikaydet') }}" method="post" enctype="multipart/form-data"
+                                  class="form-horizontal">
+                                @csrf
+                                <div class="row mt-3">
+                                <div class="form-group col-md-6">
+                                    <label for="musteri_id" class="col-form-label">Müşteri Seçiniz</label>
+                                    <select name="musteri_id" id="musteri_id" class="form-control">
+                                        <option value="1">Müşteri 1</option>
+                                        <option value="2">Müşteri 2</option>
+                                        <option value="3">Müşteri 3</option>
 
-                            </p>
+                                    </select>
+                                </div>
 
-                            <form id="wizard-clickable">
-                                <fieldset title="1">
-                                    <legend>Müşteri</legend>
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="urun_kalitesi" class="col-form-label">Ürün Kalitesi</label>
+                                    <select name="urun_kalitesi" id="urun_kalitesi" class="form-control">
+                                        <option value="1">1. Kalite</option>
+                                        <option value="2">1. Prizma</option>
+                                        <option value="3">Arta Kalan</option>
 
-                                            <div class="form-group">
-                                                <label for="musteri_adi" class="col-form-label">Müşteri Seç</label>
-                                                <select name="musteri_adi" id="musteri_adi" class="form-control">
-                                                    <option value="Demirci">Demirci 1</option>
-                                                    <option value="Mustafa">Mustafa 1</option>
-                                                </select>
-                                            </div>
+                                    </select>
+                                </div>
+                                </div>
 
-                                            <div class="form-group">
-                                                <label for="parti_kalite" class="col-form-label">Kalite Seç</label>
-                                                <select name="parti_kalite" id="parti_kalite" class="form-control">
-                                                    <option value="1.Sınıf">1. Sınıf</option>
-                                                    <option value="1.Prizma">1. Prizma</option>
-                                                    <option value="Arta-Kalan">Arta Kalan</option>
-                                                </select>
-                                            </div>
 
-                                        </div>
+                            <table class="table table-bordered" id="orders">
+                                <button type="button" name="add" id="add" class="btn btn-primary circle">+ Yeni
+                                    Satır Ekle
+                                </button>
+                                <tr>
+                                    <td>#</td>
+                                    <th>Kln</th>
+                                    <th>En</th>
+                                    <th>Boy</th>
+                                    <th>dm3</th>
+                                </tr>
+                                <tr>
+                                    <td>1 <input class="form-control" type='hidden' data-type="sira_1" value="#1" id='sira_1'
+                                                 name='sira[]'/></td>
+                                    <td style="padding: 2px 1px"><input class="form-control product_price"
+                                                                        type='number'
+                                                                        data-type="kln"
+                                                                        id='kln_1' name='kln[]'
+                                                                        for="1"/></td> <!-- purchase_cost -->
+                                    <td style="padding: 2px 1px"><input class="form-control quantity" type='number'
+                                                                        id='eni_1'
+                                                                        name='eni[]' for="1"/></td>
+                                    <td style="padding: 2px 1px"><input class="form-control boy sonrakiSatir" type='number'
+                                                                        id='boy_1' name='boy[]' for="1"/>
+                                    </td>
 
-                                        <div class="col-md-6">
+                                    <td style="padding: 2px 1px"><input class="form-control total_cost" type='text'
+                                                                        id='toplam_dm_1'
+                                                                        name='toplam_dm[]' for='1' readonly/></td>
 
-                                            <div class="table-responsive">
+                                </tr>
+                            </table>
+                            <!-- ???? <input class="form-control" type='hidden' data-type="product_id_1" id='product_id_1'
+                                   name='product_id[]'/> -->
 
-                                                <table class="table mb-0 table-sm">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Kln</th>
-                                                        <th>En</th>
-                                                        <th>Boy</th>
-                                                        <th>dm3</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td><input type="text" class="form-control" name="parti_kln_1" id="parti_kln_1"></td>
-                                                        <td><input type="text" class="form-control" name="parti_en_1" id="parti_en_1"></td>
-                                                        <td><input type="text" class="form-control" name="parti_boy_1" id="parti_boy_1"></td>
-                                                        <td><input type="text" class="form-control" name="parti_dm3_1" id="parti_dm3_1"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td><input type="text" class="form-control" name="parti_kln_2" id="parti_kln_2"></td>
-                                                        <td><input type="text" class="form-control" name="parti_en_2" id="parti_en_2"></td>
-                                                        <td><input type="text" class="form-control" name="parti_boy_2" id="parti_boy_2"></td>
-                                                        <td><input type="text" class="form-control" name="parti_dm3_2" id="parti_dm3_2"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td><input type="text" class="form-control" name="parti_kln_3" id="parti_kln_3"></td>
-                                                        <td><input type="text" class="form-control" name="parti_en_3" id="parti_en_3"></td>
-                                                        <td><input type="text" class="form-control" name="parti_boy_3" id="parti_boy_3"></td>
-                                                        <td><input type="text" class="form-control" name="parti_dm3_3" id="parti_dm3_3"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4</th>
-                                                        <td><input type="text" class="form-control" name="parti_kln_4" id="parti_kln_4"></td>
-                                                        <td><input type="text" class="form-control" name="parti_en_4" id="parti_en_4"></td>
-                                                        <td><input type="text" class="form-control" name="parti_boy_4" id="parti_boy_4"></td>
-                                                        <td><input type="text" class="form-control" name="parti_dm3_4" id="parti_dm3_4"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">5</th>
-                                                        <td><input type="text" class="form-control" name="parti_kln_5" id="parti_kln_5"></td>
-                                                        <td><input type="text" class="form-control" name="parti_en_5" id="parti_en_5"></td>
-                                                        <td><input type="text" class="form-control" name="parti_boy_5" id="parti_boy_5"></td>
-                                                        <td><input type="text" class="form-control" name="parti_dm3_5" id="parti_dm3_5"></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="line line-dashed line-lg pull-in" style="clear: both;"></div>
 
-                                </fieldset>
+                            <label style="margin-right: 10px">Toplam dm3</label>
+                            <div class="form-group">
+                                <td><input class="form-control subtotal" type='text' id='subtotal' name='subtotal'
+                                           readonly/></td>
+                            </div>
 
-                                <fieldset title="2">
-                                    <legend>10 Parti</legend>
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="phonenumber1">Phone Number</label>
-                                                <input type="text" class="form-control" id="phonenumber1" placeholder="">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="address1">Address</label>
-                                                <input type="text" class="form-control" id="address1" placeholder="">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="aboutme1">About Me</label>
-                                                <textarea class="form-control" rows="5" id="aboutme1"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="currentlocation1">Current Location</label>
-                                                <input type="text" class="form-control" id="currentlocation1" placeholder="">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="username">Freelance</label>
-                                                <select class="form-control">
-                                                    <option>Available</option>
-                                                    <option>Unavailable</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset title="3">
-                                    <legend>20 Parti</legend>
-
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
-
-                                            <div class="form-group">
-                                                <label>Facebook</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="mdi mdi-facebook"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Facebook url">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Linkdin</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="mdi mdi-linkedin"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Linkdin url">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Instagram</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="mdi mdi-instagram"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Instagram url">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Twitter</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="mdi mdi-twitter"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Twitter url">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Skype</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="mdi mdi-skype"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Skype url">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Pinterest</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i class="mdi mdi-pinterest"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Pinterest url">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-
-                                <button type="submit" class="btn btn-primary stepy-finish">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fa fa-check-square"></i>  Kaydet
+                                </button>
                             </form>
-
-                        </div>
                     </div>
-                </div>
-
-                <!-- End row -->
 
 
+                </div> <!-- end container-fluid -->
+
+            </div> <!-- end content -->
 
 
+            <script type="text/javascript">
 
-            </div> <!-- end container-fluid -->
+                //enter engelleme
+                $(document).ready(function() {
+                    $(window).keydown(function(event){
+                        if(event.keyCode == 13) {
+                            event.preventDefault();
+                            return false;
+                        }
+                    });
+                });
 
-        </div> <!-- end content -->
+                $(".sonrakiSatir").keyup(function(event) {
+                    if (event.keyCode === 13) {
+                        $("#add").click();
+                    }
+                });
 
 
+                var rowCount = 1;
 
-        <!-- Footer Start -->
-    @include('layouts.admin.footer')
+                $('#add').click(function () {
+                    rowCount++;
+
+                   // $('#orders').append('<tr id="row' + rowCount + '"><td>' + rowCount + '</td><td style="padding: 2px 1px"><input class="form-control product_price" type="number" data-type="kln" id="kln_' + rowCount + '" name="kln[]" for="' + rowCount + '"/></td><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td style="padding: 2px 1px"><input class="form-control quantity" type="number" class="quantity" id="eni_' + rowCount + '" name="eni[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control boy" type="number" class="boy" id="boy_' + rowCount + '" name="boy[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control total_cost" type="text" id="toplam_dm_' + rowCount + '" name="toplam_dm[]" for="' + rowCount + '" readonly/></td></tr>');
+                    $('#orders').append('<tr id="row' + rowCount + '"><td>' + rowCount + '<input class="form-control" type="hidden" data-type="sira" value="#' + rowCount + '" id="sira_' + rowCount + '" name="sira[]"/></td><td style="padding: 2px 1px"><input class="form-control product_price" type="number" data-type="kln" id="kln_' + rowCount + '" name="kln[]" for="' + rowCount + '"/></td><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td style="padding: 2px 1px"><input class="form-control quantity" type="number" class="quantity" id="eni_' + rowCount + '" name="eni[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control boy sonrakiSatir" type="number" class="boy" id="boy_' + rowCount + '" name="boy[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control total_cost" type="text" id="toplam_dm_' + rowCount + '" name="toplam_dm[]" for="' + rowCount + '" readonly/></td></tr>');
+
+                });
+
+                // Add a generic event listener for any change on quantity or price classed inputs
+                $("#orders").on('input', 'input.eni,input.kln,input.boy', function () {
+                    getTotalCost($(this).attr("for"));
+                });
+
+                $(document).on('click', '.btn_remove', function () {
+                    var button_id = $(this).attr('id');
+                    $('#row' + button_id + '').remove();
+                });
+
+                // Using a new index rather than your global variable i
+                function getTotalCost(ind) {
+                    var qty = $('#eni_' + ind).val();
+                    var price = $('#kln_' + ind).val();
+                    var boy = $('#boy_' + ind).val();
+                    var totNumber = Math.round((qty * price * boy) / 1000);
+                    var tot = totNumber.toFixed(0);
+
+                    $('#toplam_dm_' + ind).val(tot);
+                    calculateSubTotal();
+                }
+
+                function calculateSubTotal() {
+                    var subtotal = 0;
+                    $('.total_cost').each(function () {
+                        subtotal += parseFloat($(this).val());
+                    });
+                    $('#subtotal').val(subtotal);
+                }
+
+            </script>
+
+
+            <!-- Footer Start -->
+        @include('layouts.admin.footer')
         <!-- end Footer -->
 
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
     </div>
-
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
-
 </div>
-<!-- END wrapper -->
+    <!-- END wrapper -->
 
 
+    <!-- Vendor js -->
+    <script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
 
-<!-- Vendor js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
+    <!--Form Wizard-->
+    <script src="{{url('/')}}/assets/admin/adminox/libs/stepy/jquery.stepy.js"></script>
 
-<!--Form Wizard-->
-<script src="{{url('/')}}/assets/admin/adminox/libs/stepy/jquery.stepy.js"></script>
+    <!-- Validation init js-->
+    <script src="{{url('/')}}/assets/admin/adminox/js/pages/wizard.init.js"></script>
 
-<!-- Validation init js-->
-<script src="{{url('/')}}/assets/admin/adminox/js/pages/wizard.init.js"></script>
+    <!-- App js -->
+    <script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
 
-<!-- App js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
+
 <!--
 <script src="{{url('/')}}/assets/admin/adminox/js/jquery-3.6.0.min.js"></script>
 <script src="{{url('/')}}/assets/admin/adminox/js/bootstrap.min.js"></script>
