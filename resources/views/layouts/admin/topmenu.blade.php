@@ -19,7 +19,7 @@
                     <a href="#"><i class="icon-layers"></i>Stok</a>
                     <ul class="submenu">
                         <li><a href="#"> Tomruk</a></li>
-                        <li><a href="#"> Kereste</a></li>
+                        <li><a href="{{url('/')}}/admin/stok/kereste"> Kereste</a></li>
                     </ul>
                 </li>
 

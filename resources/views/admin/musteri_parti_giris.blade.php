@@ -89,9 +89,10 @@
                                 <div class="form-group col-md-6">
                                     <label for="musteri_id" class="col-form-label">Müşteri Seçiniz</label>
                                     <select name="musteri_id" id="musteri_id" class="form-control">
-                                        <option value="1">Müşteri 1</option>
-                                        <option value="2">Müşteri 2</option>
-                                        <option value="3">Müşteri 3</option>
+                                        @foreach($musteriBilgileri as $musteri)
+                                        <option value="{{$musteri->id}}">{{$musteri->musteriadi}}</option>
+
+                                        @endforeach
 
                                     </select>
                                 </div>
@@ -99,9 +100,19 @@
                                 <div class="form-group col-md-6">
                                     <label for="urun_kalitesi" class="col-form-label">Ürün Kalitesi</label>
                                     <select name="urun_kalitesi" id="urun_kalitesi" class="form-control">
-                                        <option value="1">1. Kalite</option>
-                                        <option value="2">1. Prizma</option>
-                                        <option value="3">Arta Kalan</option>
+                                        <option value="K01.01">1.Snf Kayın Kereste</option>
+                                        <option value="K01.02">2.Snf Kayın Kereste</option>
+                                        <option value="K01.03">3.Snf Kayın Kereste</option>
+                                        <option value="K01.04">4.Snf Kayın Kereste</option>
+                                        <option value="K01.05">Iskarta Kayın Kereste</option>
+                                        <option value="K01.01.P">1.Snf Kayın Prizma</option>
+                                        <option value="K01.02.P">2.Snf Kayın Prizma</option>
+                                        <option value="K01.03.P">3.Snf Kayın Prizma</option>
+                                        <option value="K01.04.P">4.Snf Kayın Prizma</option>
+                                        <option value="K02.01">1.Snf Meşe Kereste</option>
+                                        <option value="K02.02">2.Snf Meşe Kereste</option>
+                                        <option value="K02.03">3.Snf Meşe Kereste</option>
+                                        <option value="K02.04">4.Snf Meşe Kereste</option>
 
                                     </select>
                                 </div>

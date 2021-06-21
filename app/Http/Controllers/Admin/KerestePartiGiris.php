@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Musteri;
 use Illuminate\Http\Request;
 use App\Models\Kereste_parti;
-use Illuminate\Support\Facades\DB;
 
-class MusteriPartiGiris extends Controller
+class KerestePartiGiris extends Controller
 {
     public function index()
     {
-        return view('admin.musteri_parti_giris');
+        $musteriBilgileri = Musteri::all();
+        return view('admin.musteri_parti_giris',compact('musteriBilgileri'));
     }
 
     public function detay(Request $request)

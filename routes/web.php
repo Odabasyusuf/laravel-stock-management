@@ -23,7 +23,7 @@ Route::get('/admin/deneme', function () {
 });
 
 Route::get('/admin/deneme2', function () {
-    return view('admin/musteri_parti_giris');
+    return view('admin/musteri_parti_1');
 });
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -56,9 +56,14 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::post('/musteri/update/{id}', 'admin\MusteriController@update');
 
 
-    Route::get('/partigiris', 'admin\MusteriPartiGiris@index');
-    Route::post('/partigiris/detay', 'admin\MusteriPartiGiris@detay')->name('musteripartikaydet');
-    Route::post('/partigiris/kaydet', 'admin\MusteriPartiGiris@kaydet')->name('musteripartikaydet');
+    Route::get('/partigiris', 'admin\KerestePartiGiris@index');
+    //Route::post('/partigiris/detay', 'admin\KerestePartiGiris@detay')->name('musteripartikaydet');
+    Route::post('/partigiris/kaydet', 'admin\KerestePartiGiris@kaydet')->name('musteripartikaydet'); //returnback yapılmadı
+
+
+    Route::get('/stok/kereste', 'admin\StokController@stok_kereste')->name('stok_kereste');
+    Route::get('/stok/kereste/{id}', 'admin\StokController@stok_kereste_detay')->name('stok_kereste_detay');
+
 
 
 
