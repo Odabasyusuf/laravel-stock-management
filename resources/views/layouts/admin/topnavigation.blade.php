@@ -31,7 +31,7 @@
 
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light"
                    data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{url('/')}}/assets/admin/adminox/images/users/avatar-2.jpg" alt="user-image" class="rounded-circle">
+                    <img src="{{url('/')}}/assets/admin/adminox/images/users/avatar-icon.png" alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ml-1">
                                        {{\Illuminate\Support\Facades\Auth::User()->name}} <i class="mdi mdi-chevron-down"></i>
                                     </span>
@@ -95,7 +95,7 @@
         <!-- LOGO -->
         <div class="logo-box">
 
-            <a href="{{url('/')}}/" class="logo text-center logo-dark">
+            <a href="{{url('/')}}/admin" class="logo text-center logo-dark">
                                 <span class="logo-lg">
                                     <img src="{{url('/')}}/assets/admin/adminox/images/logo-dark-y.png" alt="" height="24">
                                     <!-- <span class="logo-lg-text-dark">Adminox</span> -->

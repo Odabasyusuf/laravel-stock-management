@@ -1,0 +1,18 @@
+body {
+    color: #0c1f28 !important;
+    font-size: 0.85rem;
+}
+
+.navigation-menu > li > a {
+
+}
+
+.table {
+    color: #565656 !important;
+}
+
+.table-hover tbody tr:hover {
+    color: white;
+    background-color: #2f96b4 !important;
+    cursor: pointer;
+}

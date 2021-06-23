@@ -16,7 +16,7 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"><i class="icon-layers"></i>Stok</a>
+                    <a href="{{route('admin.stok_index')}}"><i class="icon-layers"></i>Stok</a>
                     <ul class="submenu">
                         <li><a href="#"> Tomruk</a></li>
                         <li><a href="{{url('/')}}/admin/stok/kereste"> Kereste</a></li>
@@ -34,7 +34,7 @@
 
 
                 <li class="has-submenu">
-                    <a href="#"> <i class="far fa-plus-square"></i>Kereste Girişi</a>
+                    <a href="{{url('/')}}/admin/partigiris"> <i class="far fa-plus-square"></i>Kereste Girişi</a>
                 </li>
 
                 <li class="has-submenu">

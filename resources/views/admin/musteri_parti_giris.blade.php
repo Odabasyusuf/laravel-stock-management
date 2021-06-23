@@ -25,6 +25,8 @@
     <!-- App css -->
     <link href="{{url('/')}}/assets/admin/adminox/css/bootstrap.css" rel="stylesheet" type="text/css"
           id="bootstrap-stylesheet"/>
+    <!-- Self css -->
+    <link href="{{url('/')}}/assets/admin/adminox/css/self.css" rel="stylesheet" type="text/css" id="self-stylesheet"/>
 
     <link href="{{url('/')}}/assets/admin/adminox/css/icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="{{url('/')}}/assets/admin/adminox/css/app.css" rel="stylesheet" type="text/css" id="app-stylesheet"/>

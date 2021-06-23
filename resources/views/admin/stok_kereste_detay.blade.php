@@ -24,7 +24,7 @@
                     <h4 class="header-title" style="margin-bottom: 20px"> Parti Seç
                     </h4>
                 </div>
-                <div class="col-4" style="float:left; margin-left: 25px;">
+                <div class="col-4" style=" margin-left: 25px;">
                     @if(\Session::has('message'))
                         <div class="alert alert-danger">
                             <p>{{ \Session::get('message') }}</p>
@@ -38,8 +38,8 @@
                     @endif
 
                 </div>
-                <p class="sub-header">
-
+                <p class="sub-header" >
+                    <br /><br /><strong>Depodaki Parti Sayısı :  <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
                 </p>
                 <div class="col-4">
 
@@ -64,7 +64,8 @@
                          </div>
                     </div>-->
                 <div class="table-responsive">
-                    <table id="demo-foo-filtering" class="table table-striped toggle-circle mb-0"
+                    <!-- <table id="demo-foo-filtering" class="table table-striped toggle-circle mb-0" -->
+                    <table id="demo-foo-filtering" class="table table-hover table-striped  mb-0"
                            data-page-size="50">
                         <thead>
                         <tr>
@@ -79,13 +80,23 @@
 
                         <tbody>
                         @foreach($joinTables->sortBy('id') as $joinTable)
-                            <tr class='clickable-row' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
-                                <td>{{$joinTable->id}}</td>
+                            @if($partiID == $joinTable->id)
+                                <tr class='table-success clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}' >
+                                    <td>{{$joinTable->id}}</td>
+                                    <td>{{$joinTable->musteriadi}}</td>
+                                    <td>{{$joinTable->urun_kalitesi}}</td>
+                                    <td>{{$joinTable->kalite_adi}}</td>
+                                    <td>{{$joinTable->toplam_dm3}}</td>
+                                </tr>
+                            @else
+                            <tr class='clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}' >
+                                <td >{{$joinTable->id}}</td>
                                 <td>{{$joinTable->musteriadi}}</td>
                                 <td>{{$joinTable->urun_kalitesi}}</td>
                                 <td>{{$joinTable->kalite_adi}}</td>
                                 <td>{{$joinTable->toplam_dm3}}</td>
                             </tr>
+                            @endif
                         @endforeach
                         </tbody>
                         <tfoot>
@@ -106,11 +117,11 @@
 
         <div class="col-md-6">
             <div class="card-box">
-                <div style="float:left;">
+                <div style="">
                     <h4 class="header-title" style="margin-bottom: 20px">Parti Detayı
                     </h4>
                 </div>
-                <div class="col-4" style="float:left; margin-left: 25px;">
+                <div class="col-4" style="">
                     @if(\Session::has('message'))
                         <div class="alert alert-danger">
                             <p>{{ \Session::get('message') }}</p>
@@ -125,7 +136,11 @@
 
                 </div>
                 <p class="sub-header">
-
+                @foreach($musteriDetay as $musteri)
+                    <strong>Müşteri: </strong> {{$musteri->musteriadi}}&emsp;&emsp;
+                    <strong>Müşteri Tel: </strong> {{$musteri->tel}}&emsp;&emsp;
+                    <strong>Ürün Kalitesi: </strong> {{$musteri->urun_kalitesi}}
+                @endforeach
                 </p>
                 <div class="col-4">
 
@@ -147,7 +162,7 @@
 
                         <tbody>
                         @for ($i = 0; $i < count($datas); $i++)
-                            <tr class='clickable-row' data-href='{{url('/')}}/admin/stok/kereste/'>
+                            <tr>
                                 <td>{{$datas[$i]['sira']}}</td>
                                 <td>{{$datas[$i]['kln']}}</td>
                                 <td>{{$datas[$i]['en']}}</td>
@@ -159,7 +174,7 @@
                         <tfoot>
                         <tr class="active">
                             <td colspan="5">
-                                <div class="">
+                                <div class="" style="margin-right: 20px">
                                     <ul class="pagination pagination-split justify-content-end footable-pagination"><strong>Toplam :  <label id="toplam_dm3" style="font-size:16px ;margin: 0px 10px; color: #0026ff"> </label> dm3 </strong></ul>
                                 </div>
                             </td>
@@ -190,7 +205,9 @@
             $('table tfoot #toplam_dm3').eq(index).text(' ' + total);
         }
 
-
+        // Parti Sayısı
+        var satirSayisi = $(".satirSay").length;
+        $('#toplamSatir').text(satirSayisi);
     </script>
 
 @endsection

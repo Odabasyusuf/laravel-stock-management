@@ -13,32 +13,23 @@
                 window.location = $(this).data("href");
             });
         });
+
     </script>
 
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="card-box">
                 <div style="float:left;">
-                    <h4 class="header-title">
+                    <h4 class="header-title"> Parti Seç
                     </h4>
                 </div>
                 <div class="col-4" style="float:left; margin-left: 25px;">
-                    @if(\Session::has('message'))
-                        <div class="alert alert-danger">
-                            <p>{{ \Session::get('message') }}</p>
-                        </div>
-                    @endif
 
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <p><br>{{ \Session::get('success') }}</p>
-                        </div>
-                    @endif
 
                 </div>
                 <p class="sub-header">
-
+                    <br /><br /><strong>Depodaki Parti Sayısı :  <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
                 </p>
                 <div class="col-4">
 
@@ -63,7 +54,7 @@
                          </div>
                     </div>-->
                 <div class="table-responsive">
-                    <table id="demo-foo-filtering" class="table table-striped toggle-circle mb-0"
+                    <table id="demo-foo-filtering" class="table table-hover table-striped toggle-circle mb-0"
                            data-page-size="50">
                         <thead>
                         <tr>
@@ -78,7 +69,7 @@
 
                         <tbody>
                         @foreach($joinTables->sortBy('id') as $joinTable)
-                            <tr class='clickable-row' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
+                            <tr class='clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
                                 <td>{{$joinTable->id}}</td>
                                 <td>{{$joinTable->musteriadi}}</td>
                                 <td>{{$joinTable->urun_kalitesi}}</td>
@@ -100,7 +91,32 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6">
+
+                    @if(\Session::has('message'))
+                        <div class="alert alert-danger">
+                            <p>{{ \Session::get('message') }}</p>
+                        </div>
+                    @endif
+
+                    @if (\Session::has('success'))
+                        <div class="alert alert-success">
+                            <p><br><strong>{{ \Session::get('success') }}</strong></p>
+                        </div>
+                    @endif
+
+        </div>
+
     </div>
 
+
+    <script>
+
+
+        // Parti Sayısı
+        var satirSayisi = $(".satirSay").length;
+        $('#toplamSatir').text(satirSayisi);
+    </script>
 
 @endsection

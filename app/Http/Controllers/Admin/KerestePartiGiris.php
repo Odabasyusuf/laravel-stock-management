@@ -85,5 +85,6 @@ class KerestePartiGiris extends Controller
 
         $musteriParti->save();
 
+        return redirect(route('admin.stok_kereste'))->with('success', 'Parti Girişi Başarılı..');
     }
 }

@@ -61,6 +61,7 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::post('/partigiris/kaydet', 'admin\KerestePartiGiris@kaydet')->name('musteripartikaydet'); //returnback yapılmadı
 
 
+    Route::get('/stok/index', 'admin\StokController@index')->name('stok_index');
     Route::get('/stok/kereste', 'admin\StokController@stok_kereste')->name('stok_kereste');
     Route::get('/stok/kereste/{id}', 'admin\StokController@stok_kereste_detay')->name('stok_kereste_detay');
 

@@ -3,20 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Musteri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Compound;
 
 class StokController extends Controller
 {
     public function index(){
-
+        return view('admin.stok_index');
     }
 
     public function stok_kereste(){
 
         $joinTables = DB::table('musteris')
-            ->join('kereste_partis','kereste_partis.musteri_id', 'musteris.id')
-            ->join('kalite_kereste','kalite_kereste.kalite_kodu', 'kereste_partis.urun_kalitesi')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
             ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
             ->get();
 
@@ -29,8 +31,8 @@ class StokController extends Controller
     public function stok_kereste_detay($id){
 
         $joinTables = DB::table('musteris')
-            ->join('kereste_partis','kereste_partis.musteri_id', 'musteris.id')
-            ->join('kalite_kereste','kalite_kereste.kalite_kodu', 'kereste_partis.urun_kalitesi')
+            ->join('kereste_partis','kereste_partis.musteri_id', '=','musteris.id')
+            ->join('kalite_kereste','kalite_kereste.kalite_kodu','=', 'kereste_partis.urun_kalitesi')
             ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
             ->get();
 
@@ -38,6 +40,13 @@ class StokController extends Controller
             ->where('kereste_partis.id',$id)
             ->select('parti_detay')
             ->get();
+
+        $musteriDetay = DB::table('kereste_partis')
+            ->join('musteris','kereste_partis.musteri_id', '=','musteris.id')
+            ->where('kereste_partis.id',$id)
+            ->get();
+
+
 
         //$json_string = stripslashes($partiDetaylari);
         //return json_decode($partiDetaylari, true);
@@ -59,8 +68,9 @@ class StokController extends Controller
            }
        }
 */
-
-        return view('admin.stok_kereste_detay',compact('datas'),compact('joinTables'));
+        $partiID = $id;
+        //return view('admin.stok_kereste_detay',compact('datas'),compact('joinTables'),compact('musteriDetay'));
+        return view('admin.stok_kereste_detay',compact(['datas', 'joinTables', 'musteriDetay','partiID']));
 
     }
 }
