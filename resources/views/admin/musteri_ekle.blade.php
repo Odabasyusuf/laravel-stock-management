@@ -151,7 +151,7 @@
                 <p class="sub-header"></p>
                 <div class="table-responsive">
                     <table id="demo-foo-filtering" class="table table-striped toggle-circle mb-0"
-                           data-page-size="3">
+                           data-page-size="20">
                         <thead>
                         <tr>
                             <th width="25%">Sıra</th>

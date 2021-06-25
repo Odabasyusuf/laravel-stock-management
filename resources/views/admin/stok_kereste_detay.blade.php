@@ -20,11 +20,10 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card-box">
-                <div style="float:left;">
-                    <h4 class="header-title" style="margin-bottom: 20px"> Parti Seç
-                    </h4>
+                <div>
+                    <h4 class="header-title" style=""> Parti Seç </h4>
                 </div>
-                <div class="col-4" style=" margin-left: 25px;">
+                <div class="col-4" style="">
                     @if(\Session::has('message'))
                         <div class="alert alert-danger">
                             <p>{{ \Session::get('message') }}</p>
@@ -39,30 +38,35 @@
 
                 </div>
                 <p class="sub-header" >
-                    <br /><br /><strong>Depodaki Parti Sayısı :  <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
+
                 </p>
                 <div class="col-4">
 
                 </div>
-
-                <!-- <div class="mb-3">
+                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
+                 <div class="mb-2">
                           <div class="row">
                              <div class="col-12 text-sm-center form-inline">
-                                 <div class="form-group mr-2">
-                                     <select id="demo-foo-filter-status" class="custom-select">
+                                 <div class="form-group mr-3">
+
+                                 </div>
+                                 <div class="form-group mr-3">
+
+                                     <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
                                          <option value="">Tümünü Göster</option>
                                          <option value="active">Aktif</option>
                                          <option value="disabled">Pasif</option>
                                          <option value="suspended">Suspended</option>
                                      </select>
                                  </div>
-                                 <div class="form-group">
-                                     <input id="demo-foo-search" type="text" placeholder="Müşteri Ara" class="form-control"
+                                 <div class="form-group" style=" position: absolute; right: 20px;">
+                                     <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
                                             autocomplete="on">
                                  </div>
+
                              </div>
                          </div>
-                    </div>-->
+                    </div>
                 <div class="table-responsive">
                     <!-- <table id="demo-foo-filtering" class="table table-striped toggle-circle mb-0" -->
                     <table id="demo-foo-filtering" class="table table-hover table-striped  mb-0"

@@ -20,39 +20,44 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card-box">
-                <div style="float:left;">
+                <div style="">
                     <h4 class="header-title"> Parti Seç
                     </h4>
                 </div>
-                <div class="col-4" style="float:left; margin-left: 25px;">
+                <div class="col-4" style="">
 
 
                 </div>
                 <p class="sub-header">
-                    <br /><br /><strong>Depodaki Parti Sayısı :  <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
+
                 </p>
                 <div class="col-4">
 
                 </div>
+                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
 
-                <!-- <div class="mb-3">
+                 <div class="mb-3">
                           <div class="row">
                              <div class="col-12 text-sm-center form-inline">
-                                 <div class="form-group mr-2">
-                                     <select id="demo-foo-filter-status" class="custom-select">
+                                 <div class="form-group mr-3">
+
+                                     <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
                                          <option value="">Tümünü Göster</option>
                                          <option value="active">Aktif</option>
                                          <option value="disabled">Pasif</option>
                                          <option value="suspended">Suspended</option>
                                      </select>
                                  </div>
-                                 <div class="form-group">
-                                     <input id="demo-foo-search" type="text" placeholder="Müşteri Ara" class="form-control"
+                                 <div class="form-group" style=" position: absolute; right: 20px;">
+                                     <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
                                             autocomplete="on">
                                  </div>
                              </div>
                          </div>
-                    </div>-->
+                    </div>
+
+
+
                 <div class="table-responsive">
                     <table id="demo-foo-filtering" class="table table-hover table-striped toggle-circle mb-0"
                            data-page-size="50">

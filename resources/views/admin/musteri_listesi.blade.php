@@ -8,9 +8,11 @@
 
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
             <div class="card-box">
-                <div style="float:left;">
+                <div style="">
                 <h4 class="header-title"><a href="{{ route('admin.musteri.create') }}">
                     <!-- veya basit rota {{url('/')}}/admin/musteri/ekle/ kullanılabilir  -->
                         <button type="button" class="btn btn-primary btn-lg"><i class="fe-plus"></i> Müşteri Ekle
@@ -65,9 +67,9 @@
                             <th width="5%">Sıra</th>
                             <th data-toggle="true">Müşteri Adı</th>
                             <th data-hide="phone">Telefon</th>
-                            <th data-hide="phone, tablet">Adres</th>
-                            <th data-hide="phone, tablet" width="10px">Düzenle</th>
-                            <th data-hide="phone, tablet" width="10px">Sil</th>
+                            <th data-hide="phone">Adres</th>
+                            <th data-hide="phone" width="10px">Düzenle</th>
+                            <th data-hide="phone" width="10px">Sil</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -81,25 +81,29 @@
                 </div>
                 <!-- end page title -->
 
-                <div class="card-box">
-                    <div class="col-md-12">
-                        <div class="line line-dashed line-lg pull-in"></div>
-                            <form action="{{ route('admin.musteripartikaydet') }}" method="post" enctype="multipart/form-data"
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-box">
+                            <div class="line line-dashed line-lg pull-in"></div>
+                            <form action="{{ route('admin.musteripartikaydet') }}" method="post"
+                                  enctype="multipart/form-data"
                                   class="form-horizontal">
-                                @csrf
-                                <div class="row mt-3">
-                                <div class="form-group col-md-6">
+                            @csrf
+                            <!-- tek satir <div class="row mt-3"> -->
+                                <div class="form-group col-md-12">
                                     <label for="musteri_id" class="col-form-label">Müşteri Seçiniz</label>
                                     <select name="musteri_id" id="musteri_id" class="form-control">
                                         @foreach($musteriBilgileri as $musteri)
-                                        <option value="{{$musteri->id}}">{{$musteri->musteriadi}}</option>
+                                            <option value="{{$musteri->id}}">{{$musteri->musteriadi}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="urun_kalitesi" class="col-form-label">Ürün Kalitesi</label>
                                     <select name="urun_kalitesi" id="urun_kalitesi" class="form-control">
                                         <option value="K01.01">1.Snf Kayın Kereste</option>
@@ -118,60 +122,69 @@
 
                                     </select>
                                 </div>
+                                <!-- </div> -->
+
+                                <div class="form-group col-md-12">
+                                    <table class="table table-bordered" id="orders">
+                                        <button type="button" name="add" id="add" class="btn btn-primary circle">+ Yeni
+                                            Satır Ekle
+                                        </button>
+                                        <tr>
+                                            <td>#</td>
+                                            <th>Kln</th>
+                                            <th>En</th>
+                                            <th>Boy</th>
+                                            <th>dm3</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1 <input class="form-control" type='hidden' data-type="sira_1"
+                                                         value="#1" id='sira_1'
+                                                         name='sira[]'/></td>
+                                            <td style="padding: 2px 1px"><input class="form-control product_price"
+                                                                                type='number'
+                                                                                data-type="kln"
+                                                                                id='kln_1' name='kln[]'
+                                                                                for="1"/></td> <!-- purchase_cost -->
+                                            <td style="padding: 2px 1px"><input class="form-control quantity"
+                                                                                type='number'
+                                                                                id='eni_1'
+                                                                                name='eni[]' for="1"/></td>
+                                            <td style="padding: 2px 1px"><input class="form-control boy sonrakiSatir"
+                                                                                type='number'
+                                                                                id='boy_1' name='boy[]' for="1"/>
+                                            </td>
+
+                                            <td style="padding: 2px 1px"><input class="form-control total_cost"
+                                                                                type='text'
+                                                                                id='toplam_dm_1'
+                                                                                name='toplam_dm[]' for='1' readonly/>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                    <!-- ???? <input class="form-control" type='hidden' data-type="product_id_1" id='product_id_1'
+                                           name='product_id[]'/> -->
+
+                                    <div class="line line-dashed line-lg pull-in" style="clear: both;"></div>
+
+                                    <label style="margin-right: 10px">Toplam dm3</label>
+                                    <div class="form-group">
+                                        <td><input class="form-control subtotal" type='text' id='subtotal'
+                                                   name='subtotal'
+                                                   readonly/></td>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fa fa-check-square"></i> Kaydet
+                                    </button>
                                 </div>
-
-
-                            <table class="table table-bordered" id="orders">
-                                <button type="button" name="add" id="add" class="btn btn-primary circle">+ Yeni
-                                    Satır Ekle
-                                </button>
-                                <tr>
-                                    <td>#</td>
-                                    <th>Kln</th>
-                                    <th>En</th>
-                                    <th>Boy</th>
-                                    <th>dm3</th>
-                                </tr>
-                                <tr>
-                                    <td>1 <input class="form-control" type='hidden' data-type="sira_1" value="#1" id='sira_1'
-                                                 name='sira[]'/></td>
-                                    <td style="padding: 2px 1px"><input class="form-control product_price"
-                                                                        type='number'
-                                                                        data-type="kln"
-                                                                        id='kln_1' name='kln[]'
-                                                                        for="1"/></td> <!-- purchase_cost -->
-                                    <td style="padding: 2px 1px"><input class="form-control quantity" type='number'
-                                                                        id='eni_1'
-                                                                        name='eni[]' for="1"/></td>
-                                    <td style="padding: 2px 1px"><input class="form-control boy sonrakiSatir" type='number'
-                                                                        id='boy_1' name='boy[]' for="1"/>
-                                    </td>
-
-                                    <td style="padding: 2px 1px"><input class="form-control total_cost" type='text'
-                                                                        id='toplam_dm_1'
-                                                                        name='toplam_dm[]' for='1' readonly/></td>
-
-                                </tr>
-                            </table>
-                            <!-- ???? <input class="form-control" type='hidden' data-type="product_id_1" id='product_id_1'
-                                   name='product_id[]'/> -->
-
-                            <div class="line line-dashed line-lg pull-in" style="clear: both;"></div>
-
-                            <label style="margin-right: 10px">Toplam dm3</label>
-                            <div class="form-group">
-                                <td><input class="form-control subtotal" type='text' id='subtotal' name='subtotal'
-                                           readonly/></td>
-                            </div>
-
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="fa fa-check-square"></i>  Kaydet
-                                </button>
                             </form>
-                    </div>
+                        </div>
 
 
-                </div> <!-- end container-fluid -->
+                    </div> <!-- end container-fluid -->
+                </div>
+
 
             </div> <!-- end content -->
 
@@ -179,16 +192,16 @@
             <script type="text/javascript">
 
                 //enter engelleme
-                $(document).ready(function() {
-                    $(window).keydown(function(event){
-                        if(event.keyCode == 13) {
+                $(document).ready(function () {
+                    $(window).keydown(function (event) {
+                        if (event.keyCode == 13) {
                             event.preventDefault();
                             return false;
                         }
                     });
                 });
 
-                $(".sonrakiSatir").keyup(function(event) {
+                $(".sonrakiSatir").keyup(function (event) {
                     if (event.keyCode === 13) {
                         $("#add").click();
                     }
@@ -200,7 +213,7 @@
                 $('#add').click(function () {
                     rowCount++;
 
-                   // $('#orders').append('<tr id="row' + rowCount + '"><td>' + rowCount + '</td><td style="padding: 2px 1px"><input class="form-control product_price" type="number" data-type="kln" id="kln_' + rowCount + '" name="kln[]" for="' + rowCount + '"/></td><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td style="padding: 2px 1px"><input class="form-control quantity" type="number" class="quantity" id="eni_' + rowCount + '" name="eni[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control boy" type="number" class="boy" id="boy_' + rowCount + '" name="boy[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control total_cost" type="text" id="toplam_dm_' + rowCount + '" name="toplam_dm[]" for="' + rowCount + '" readonly/></td></tr>');
+                    // $('#orders').append('<tr id="row' + rowCount + '"><td>' + rowCount + '</td><td style="padding: 2px 1px"><input class="form-control product_price" type="number" data-type="kln" id="kln_' + rowCount + '" name="kln[]" for="' + rowCount + '"/></td><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td style="padding: 2px 1px"><input class="form-control quantity" type="number" class="quantity" id="eni_' + rowCount + '" name="eni[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control boy" type="number" class="boy" id="boy_' + rowCount + '" name="boy[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control total_cost" type="text" id="toplam_dm_' + rowCount + '" name="toplam_dm[]" for="' + rowCount + '" readonly/></td></tr>');
                     $('#orders').append('<tr id="row' + rowCount + '"><td>' + rowCount + '<input class="form-control" type="hidden" data-type="sira" value="#' + rowCount + '" id="sira_' + rowCount + '" name="sira[]"/></td><td style="padding: 2px 1px"><input class="form-control product_price" type="number" data-type="kln" id="kln_' + rowCount + '" name="kln[]" for="' + rowCount + '"/></td><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td style="padding: 2px 1px"><input class="form-control quantity" type="number" class="quantity" id="eni_' + rowCount + '" name="eni[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control boy sonrakiSatir" type="number" class="boy" id="boy_' + rowCount + '" name="boy[]" for="' + rowCount + '"/></td><td style="padding: 2px 1px"><input class="form-control total_cost" type="text" id="toplam_dm_' + rowCount + '" name="toplam_dm[]" for="' + rowCount + '" readonly/></td></tr>');
 
                 });
@@ -250,20 +263,20 @@
 
     </div>
 </div>
-    <!-- END wrapper -->
+<!-- END wrapper -->
 
 
-    <!-- Vendor js -->
-    <script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
+<!-- Vendor js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
 
-    <!--Form Wizard-->
-    <script src="{{url('/')}}/assets/admin/adminox/libs/stepy/jquery.stepy.js"></script>
+<!--Form Wizard-->
+<script src="{{url('/')}}/assets/admin/adminox/libs/stepy/jquery.stepy.js"></script>
 
-    <!-- Validation init js-->
-    <script src="{{url('/')}}/assets/admin/adminox/js/pages/wizard.init.js"></script>
+<!-- Validation init js-->
+<script src="{{url('/')}}/assets/admin/adminox/js/pages/wizard.init.js"></script>
 
-    <!-- App js -->
-    <script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
+<!-- App js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
 
 
 <!--
