@@ -6,10 +6,13 @@
 
 @section('content')
 
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".clickable-row").click(function() {
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
                 window.location = $(this).data("href");
             });
         });
@@ -34,28 +37,29 @@
                 <div class="col-4">
 
                 </div>
-                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
+                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir"
+                                                              style="font-size:16px ;margin: 0px 10px;"> </label>
+                </strong>
 
-                 <div class="mb-3">
-                          <div class="row">
-                             <div class="col-12 text-sm-center form-inline">
-                                 <div class="form-group mr-3">
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-12 text-sm-center form-inline">
+                            <div class="form-group mr-3">
 
-                                     <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
-                                         <option value="">Tümünü Göster</option>
-                                         <option value="active">Aktif</option>
-                                         <option value="disabled">Pasif</option>
-                                         <option value="suspended">Suspended</option>
-                                     </select>
-                                 </div>
-                                 <div class="form-group" style=" position: absolute; right: 20px;">
-                                     <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
-                                            autocomplete="on">
-                                 </div>
-                             </div>
-                         </div>
+                                <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
+                                    <option value="">Tümünü Göster</option>
+                                    <option value="active">Aktif</option>
+                                    <option value="disabled">Pasif</option>
+                                    <option value="suspended">Suspended</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style=" position: absolute; right: 20px;">
+                                <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
+                                       autocomplete="on">
+                            </div>
+                        </div>
                     </div>
-
+                </div>
 
 
                 <div class="table-responsive">
@@ -68,18 +72,33 @@
                             <th data-hide="">Kalite Kodu</th>
                             <th data-hide="">Ürün Kalitesi</th>
                             <th data-hide="">Toplam Dm3</th>
+                            <th data-hide="">Durum</th>
                         </tr>
                         </thead>
 
 
                         <tbody>
                         @foreach($joinTables->sortBy('id') as $joinTable)
-                            <tr class='clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
+                            <tr class='clickable-row satirSay'
+                                data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
                                 <td>{{$joinTable->id}}</td>
                                 <td>{{$joinTable->musteriadi}}</td>
                                 <td>{{$joinTable->urun_kalitesi}}</td>
-                                <td>{{$joinTable->kalite_adi}}</td>
-                                <td>{{$joinTable->toplam_dm3}}</td>
+                                <td data-hide="phone,tablet">{{$joinTable->kalite_adi}}</td>
+                                <td style="text-align: center; font-weight: bold; font-size:13px;">
+                                    @if($joinTable->durum == 'Satıldı' )
+                                        -{{$joinTable->toplam_dm3}}
+                                    @else
+                                        {{$joinTable->toplam_dm3}}
+                                    @endif
+                                </td>
+                                <td style="text-align: center;">
+                                    @if($joinTable->durum == 'Satıldı' )
+                                        <b style="color: green;">{{$joinTable->durum}}</b>
+                                    @else
+                                        {{$joinTable->durum}}
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -99,17 +118,17 @@
 
         <div class="col-md-6">
 
-                    @if(\Session::has('message'))
-                        <div class="alert alert-danger">
-                            <p>{{ \Session::get('message') }}</p>
-                        </div>
-                    @endif
+            @if(\Session::has('message'))
+                <div class="alert alert-danger">
+                    <p>{{ \Session::get('message') }}</p>
+                </div>
+            @endif
 
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <p><br><strong>{{ \Session::get('success') }}</strong></p>
-                        </div>
-                    @endif
+            @if (\Session::has('success'))
+                <div class="alert alert-success">
+                    <p><br><strong>{{ \Session::get('success') }}</strong></p>
+                </div>
+            @endif
 
         </div>
 

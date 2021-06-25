@@ -20,22 +20,8 @@
                     </a>
                 </h4>
                 </div>
-                <div class="col-4" style="float:left; margin-left: 25px;">
-                    @if(\Session::has('message'))
-                        <div class="alert alert-danger">
-                            <p>{{ \Session::get('message') }}</p>
-                        </div>
-                    @endif
-
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <p><br>{{ \Session::get('success') }}</p>
-                        </div>
-                    @endif
-
-                </div>
                 <p class="sub-header">
-
+                    @include('admin.flash-message')
                 </p>
                 <div class="col-4">
 
@@ -83,8 +69,10 @@
                                         <button type="button" class="btn btn-outline-primary btn-sm" >Düzenle</button>
                                     </a></td>
                                 <td>
-                                    <a href="{{route('admin.musteri_sil', $musteri->id)}}">
-                                        <button type="button" class="btn btn-outline-danger btn-sm" onclick="return confirm('Tamamen silinecek emin misiniz?')">Sil</button>
+                                    <a href="{{route('admin.musteri_sil', $musteri->id)}}" class="btn btn-outline-danger btn-sm button delete-confirm"> Sil
+                                        <!--
+                                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="return confirm('Tamamen silinecek emin misiniz?')">Sil</button>
+                                        -->
                                     </a>
 
                                 </td>
@@ -105,7 +93,34 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('.delete-confirm').on('click', function (event) {
+            event.preventDefault();
+            const url = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Müşteri Silinecek',
+                text: "Emin Misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, Sil!',
+                cancelButtonText: 'Kapat'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Başarılı!',
+                        'Müşteri silindi.',
+                        'success'
+                    )
+                    window.location.href = url;
+                }
+            })
+
+        });
 
 
-
+    </script>
 @endsection

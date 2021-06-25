@@ -36,10 +36,33 @@
     <!-- ========================== CSS end =========================== -->
     <!-- ============================================================== -->
 
+
+
 </head>
 
 <body class="unsticky-header" data-layout="horizontal">
 
+<!-- ============================================================== -->
+<!-- ========================== JS start ========================== -->
+
+
+<!-- Vendor js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
+
+<!--C3 Chart-->
+<script src="{{url('/')}}/assets/admin/adminox/libs/d3/d3.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/libs/c3/c3.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/libs/echarts/echarts.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/js/pages/dashboard.init.js"></script>
+
+
+<!-- Sweet alert js -->
+<script src="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/js/pages/sweet-alerts.init.js"></script>
+
+
+<!-- =========================== JS end =========================== -->
+<!-- ============================================================== -->
 <!-- Begin page -->
 <div id="wrapper">
 
@@ -104,20 +127,8 @@
 </div>
 <!-- END wrapper -->
 
-
-
-
-<!-- ============================================================== -->
-<!-- ========================== JS start ========================== -->
-
-<!-- Vendor js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
-
-<!--C3 Chart-->
-<script src="{{url('/')}}/assets/admin/adminox/libs/d3/d3.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/libs/c3/c3.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/libs/echarts/echarts.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/js/pages/dashboard.init.js"></script>
+<!-- App js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
 
 <!-- Footable js -->
 <script src="{{url('/')}}/assets/admin/adminox/libs/footable/footable.all.min.js"></script>
@@ -125,16 +136,6 @@
 <!-- Init js -->
 <script src="{{url('/')}}/assets/admin/adminox/js/pages/foo-tables.init.js"></script>
 
-<!-- App js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
-
-<!-- Sweet alert js -->
-<script src="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/js/pages/sweet-alerts.init.js"></script>
-
-
-<!-- =========================== JS end =========================== -->
-<!-- ============================================================== -->
 
 
 </body>

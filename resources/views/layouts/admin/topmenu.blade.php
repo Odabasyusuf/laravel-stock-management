@@ -1,4 +1,3 @@
-
 <div class="topbar-menu">
     <div class="container-fluid">
         <div id="navigation">
@@ -6,7 +5,8 @@
             <ul class="navigation-menu">
 
                 <li class="has-submenu">
-                    <a href="{{url('/')}}/admin/"> <i class="fe-airplay"></i>Anasayfa</a>
+                    <a href="{{url('/')}}/admin/"> <i class="fe-airplay"></i>Anasayfa
+                    </a>
                 </li>
 
                 <li class="has-submenu">
@@ -16,30 +16,37 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{route('admin.stok_index')}}"><i class="icon-layers"></i>Stok</a>
-                    <ul class="submenu">
-                        <li><a href="#"> Tomruk</a></li>
-                        <li><a href="{{url('/')}}/admin/stok/kereste"> Kereste</a></li>
-                    </ul>
+                    <a href="{{route('admin.stok_index')}}"><i class="icon-layers"></i>Stok Tomruk
+                    </a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="{{route('admin.stok_kereste')}}">
+                        <i class="icon-layers"></i>Stok Kereste
+                    </a>
                 </li>
 
                 <li class="has-submenu">
                     <a href="#">
-                        <i class="fe-plus-circle"></i>Tomruk Girişi</a>
+                        <i class="fe-plus-circle"></i>Tomruk Girişi
+                    </a>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"><i class="fe-minus-circle"></i>Tomruk Çıkışı</a>
+                    <a href="{{url('/')}}/admin/partigiris"> <i class="far fa-plus-square"></i>Kereste Girişi
+                    </a>
                 </li>
+                <!--
+                    <li class="has-submenu">
+                        <a href="#"><i class="fe-minus-circle"></i>Tomruk Çıkışı
+                        </a>
+                    </li>
 
-
-                <li class="has-submenu">
-                    <a href="{{url('/')}}/admin/partigiris"> <i class="far fa-plus-square"></i>Kereste Girişi</a>
-                </li>
-
-                <li class="has-submenu">
-                    <a href="#"><i class="fe-minus-square"></i>Kereste Çıkışı</a>
-                </li>
+                    <li class="has-submenu">
+                        <a href="#"><i class="fe-minus-square"></i>Kereste Çıkışı
+                        </a>
+                    </li>
+                -->
 
             </ul>
             <!-- End navigation menu -->

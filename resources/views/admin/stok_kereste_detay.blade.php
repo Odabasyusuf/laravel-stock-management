@@ -78,6 +78,7 @@
                             <th data-hide="">Kalite Kodu</th>
                             <th data-hide="">Ürün Kalitesi</th>
                             <th data-hide="">Toplam Dm3</th>
+                            <th data-hide="">Durum</th>
                         </tr>
                         </thead>
 
@@ -90,7 +91,20 @@
                                     <td>{{$joinTable->musteriadi}}</td>
                                     <td>{{$joinTable->urun_kalitesi}}</td>
                                     <td>{{$joinTable->kalite_adi}}</td>
-                                    <td>{{$joinTable->toplam_dm3}}</td>
+                                    <td style="text-align: center; font-weight: bold; font-size:13px;">
+                                        @if($joinTable->durum == 'Satıldı')
+                                            -{{$joinTable->toplam_dm3}}
+                                        @else
+                                            {{$joinTable->toplam_dm3}}
+                                        @endif
+                                    </td>
+                                    <td style="text-align: center;">
+                                        @if($joinTable->durum == 'Satıldı' )
+                                            <b style="color: green;">{{$joinTable->durum}}</b>
+                                        @else
+                                            {{$joinTable->durum}}
+                                        @endif
+                                    </td>
                                 </tr>
                             @else
                             <tr class='clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}' >
@@ -98,7 +112,19 @@
                                 <td>{{$joinTable->musteriadi}}</td>
                                 <td>{{$joinTable->urun_kalitesi}}</td>
                                 <td>{{$joinTable->kalite_adi}}</td>
-                                <td>{{$joinTable->toplam_dm3}}</td>
+                                <td style="text-align: center; font-weight: bold; font-size:13px;">
+                                    @if($joinTable->durum == 'Satıldı')
+                                        -{{$joinTable->toplam_dm3}}
+                                    @else
+                                        {{$joinTable->toplam_dm3}}
+                                    @endif
+                                </td>
+                                <td style="text-align: center;"> @if($joinTable->durum == 'Satıldı' )
+                                        <b style="color: green;">{{$joinTable->durum}}</b>
+                                    @else
+                                        {{$joinTable->durum}}
+                                    @endif
+                                </td>
                             </tr>
                             @endif
                         @endforeach

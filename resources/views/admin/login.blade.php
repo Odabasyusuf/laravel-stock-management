@@ -15,7 +15,8 @@
     <link href="{{url('/')}}/assets/admin/adminox/css/bootstrap.min.css" rel="stylesheet" type="text/css"
           id="bootstrap-stylesheet"/>
     <link href="{{url('/')}}/assets/admin/adminox/css/icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="{{url('/')}}/assets/admin/adminox/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet"/>
+    <link href="{{url('/')}}/assets/admin/adminox/css/app.min.css" rel="stylesheet" type="text/css"
+          id="app-stylesheet"/>
 
 </head>
 
@@ -39,7 +40,8 @@
                             <div class="account-logo-box">
                                 <div class="text-center">
 
-                                    <img src="{{url('/')}}/assets/admin/adminox/images/logo-dark-y.png" alt="" height="30">
+                                    <img src="{{url('/')}}/assets/admin/adminox/images/logo-dark-y.png" alt=""
+                                         height="30">
 
                                 </div>
                             </div>
@@ -130,6 +132,7 @@
         <!-- end container -->
     </div>
     <!-- end page -->
+</div>
 
     <!-- Vendor js -->
     <script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>

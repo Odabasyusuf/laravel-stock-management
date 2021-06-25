@@ -12,7 +12,7 @@ body {
 }
 
 .table-hover tbody tr:hover {
-    color: white;
+    color: white !important;
     background-color: #2f96b4 !important;
     cursor: pointer;
 }

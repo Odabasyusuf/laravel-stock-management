@@ -90,7 +90,7 @@ class MusteriController extends Controller
     {
         $musteri = Musteri::find($id);
 
-        $musteri -> Delete();
+//        $musteri -> Delete();
 
         return back()->with('success','Müşteri Silindi');
 
