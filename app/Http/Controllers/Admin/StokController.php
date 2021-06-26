@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kereste_parti;
 use App\Models\Musteri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,9 +23,13 @@ class StokController extends Controller
             ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
             ->get();
 
+        $dm3stok = Kereste_parti::where('durum','Depoda')->sum('toplam_dm3');
+        $dm3satilan = Kereste_parti::where('durum','Satıldı')->sum('toplam_dm3');
+
+
         //return dd($joinTables);
 
-        return view('admin.stok_kereste',compact('joinTables'));
+        return view('admin.stok_kereste',compact(['joinTables','dm3stok','dm3satilan']));
 
     }
 
@@ -34,6 +39,7 @@ class StokController extends Controller
             ->join('kereste_partis','kereste_partis.musteri_id', '=','musteris.id')
             ->join('kalite_kereste','kalite_kereste.kalite_kodu','=', 'kereste_partis.urun_kalitesi')
             ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->orderBy('kereste_partis.id','asc')
             ->get();
 
         $partiDetaylari = DB::table('kereste_partis')
@@ -46,6 +52,10 @@ class StokController extends Controller
             ->where('kereste_partis.id',$id)
             ->get();
 
+        $satisKontrol = DB::table('kereste_partis')
+            ->where('kereste_partis.id',$id)
+            ->select('durum')
+            ->first();
 
 
         //$json_string = stripslashes($partiDetaylari);
@@ -68,9 +78,43 @@ class StokController extends Controller
            }
        }
 */
+
         $partiID = $id;
         //return view('admin.stok_kereste_detay',compact('datas'),compact('joinTables'),compact('musteriDetay'));
-        return view('admin.stok_kereste_detay',compact(['datas', 'joinTables', 'musteriDetay','partiID']));
+        return view('admin.stok_kereste_detay',compact(['datas', 'joinTables', 'musteriDetay','partiID','satisKontrol']));
 
     }
+    public function stok_kereste_cikis(Request $request, $id)
+    {
+        $secilenParti = Kereste_parti::find($id);
+
+        $secilenParti -> durum = "Satıldı";
+        $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
+
+        $secilenParti -> save();
+
+        return back()->with("success",'Seçilen Parti Ürün "Satıldı"  olarak işaretlendi');
+    }
+
+    public function stok_kereste_gerial(Request $request, $id)
+    {
+        $secilenParti = Kereste_parti::find($id);
+
+        $secilenParti -> durum = "Depoda";
+        $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
+
+        $secilenParti -> save();
+
+        return back()->with("success",'Seçilen Parti Ürün "Depoda"  olarak işaretlendi');
+    }
+    public function stok_kereste_tsil($id)
+    {
+        $secilenParti = Kereste_parti::find($id);
+
+        $secilenParti -> Delete();
+
+        return redirect()->route('admin.stok_kereste')->with("success",'Seçilen Parti Kalıcı olarak silindi..');
+    }
+
+
 }

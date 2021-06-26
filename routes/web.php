@@ -66,6 +66,9 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::get('/stok/index', 'admin\StokController@index')->name('stok_index');
     Route::get('/stok/kereste', 'admin\StokController@stok_kereste')->name('stok_kereste');
     Route::get('/stok/kereste/{id}', 'admin\StokController@stok_kereste_detay')->name('stok_kereste_detay');
+    Route::get('/stok/kereste/sat/{id}', 'admin\StokController@stok_kereste_cikis')->name('stok_kereste_cikis');
+    Route::get('/stok/kereste/geri/{id}', 'admin\StokController@stok_kereste_gerial')->name('stok_kereste_gerial');
+    Route::get('/stok/kereste/sil/{id}', 'admin\StokController@stok_kereste_tsil')->name('stok_kereste_tsil');
 
 
 });

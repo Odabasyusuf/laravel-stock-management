@@ -18,55 +18,47 @@
 
 
     <div class="row">
+        <!-- Parti Listesi -->
         <div class="col-md-6">
             <div class="card-box">
                 <div>
                     <h4 class="header-title" style=""> Parti Seç </h4>
                 </div>
                 <div class="col-4" style="">
-                    @if(\Session::has('message'))
-                        <div class="alert alert-danger">
-                            <p>{{ \Session::get('message') }}</p>
-                        </div>
-                    @endif
-
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <p><br>{{ \Session::get('success') }}</p>
-                        </div>
-                    @endif
 
                 </div>
-                <p class="sub-header" >
+                <p class="sub-header">
 
                 </p>
                 <div class="col-4">
 
                 </div>
-                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir" style="font-size:16px ;margin: 0px 10px;"> </label>  </strong>
-                 <div class="mb-2">
-                          <div class="row">
-                             <div class="col-12 text-sm-center form-inline">
-                                 <div class="form-group mr-3">
+                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir"
+                                                              style="font-size:16px ;margin: 0px 10px;"> </label>
+                </strong>
+                <div class="mb-2">
+                    <div class="row">
+                        <div class="col-12 text-sm-center form-inline">
+                            <div class="form-group mr-3">
 
-                                 </div>
-                                 <div class="form-group mr-3">
+                            </div>
+                            <div class="form-group mr-3">
 
-                                     <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
-                                         <option value="">Tümünü Göster</option>
-                                         <option value="active">Aktif</option>
-                                         <option value="disabled">Pasif</option>
-                                         <option value="suspended">Suspended</option>
-                                     </select>
-                                 </div>
-                                 <div class="form-group" style=" position: absolute; right: 20px;">
-                                     <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
-                                            autocomplete="on">
-                                 </div>
+                                <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
+                                    <option value="">Tümünü Göster</option>
+                                    <option value="active">Aktif</option>
+                                    <option value="disabled">Pasif</option>
+                                    <option value="suspended">Suspended</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style=" position: absolute; right: 20px;">
+                                <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
+                                       autocomplete="on">
+                            </div>
 
-                             </div>
-                         </div>
+                        </div>
                     </div>
+                </div>
                 <div class="table-responsive">
                     <!-- <table id="demo-foo-filtering" class="table table-striped toggle-circle mb-0" -->
                     <table id="demo-foo-filtering" class="table table-hover table-striped  mb-0"
@@ -86,17 +78,14 @@
                         <tbody>
                         @foreach($joinTables->sortBy('id') as $joinTable)
                             @if($partiID == $joinTable->id)
-                                <tr class='table-success clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}' >
+                                <tr class='table-success clickable-row satirSay'
+                                    data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
                                     <td>{{$joinTable->id}}</td>
                                     <td>{{$joinTable->musteriadi}}</td>
                                     <td>{{$joinTable->urun_kalitesi}}</td>
                                     <td>{{$joinTable->kalite_adi}}</td>
                                     <td style="text-align: center; font-weight: bold; font-size:13px;">
-                                        @if($joinTable->durum == 'Satıldı')
-                                            -{{$joinTable->toplam_dm3}}
-                                        @else
                                             {{$joinTable->toplam_dm3}}
-                                        @endif
                                     </td>
                                     <td style="text-align: center;">
                                         @if($joinTable->durum == 'Satıldı' )
@@ -107,25 +96,22 @@
                                     </td>
                                 </tr>
                             @else
-                            <tr class='clickable-row satirSay' data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}' >
-                                <td >{{$joinTable->id}}</td>
-                                <td>{{$joinTable->musteriadi}}</td>
-                                <td>{{$joinTable->urun_kalitesi}}</td>
-                                <td>{{$joinTable->kalite_adi}}</td>
-                                <td style="text-align: center; font-weight: bold; font-size:13px;">
-                                    @if($joinTable->durum == 'Satıldı')
-                                        -{{$joinTable->toplam_dm3}}
-                                    @else
-                                        {{$joinTable->toplam_dm3}}
-                                    @endif
-                                </td>
-                                <td style="text-align: center;"> @if($joinTable->durum == 'Satıldı' )
-                                        <b style="color: green;">{{$joinTable->durum}}</b>
-                                    @else
-                                        {{$joinTable->durum}}
-                                    @endif
-                                </td>
-                            </tr>
+                                <tr class='clickable-row satirSay'
+                                    data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
+                                    <td>{{$joinTable->id}}</td>
+                                    <td>{{$joinTable->musteriadi}}</td>
+                                    <td>{{$joinTable->urun_kalitesi}}</td>
+                                    <td>{{$joinTable->kalite_adi}}</td>
+                                    <td style="text-align: center; font-weight: bold; font-size:13px;">
+                                            {{$joinTable->toplam_dm3}}
+                                    </td>
+                                    <td style="text-align: center;"> @if($joinTable->durum == 'Satıldı' )
+                                            <b style="color: green;">{{$joinTable->durum}}</b>
+                                        @else
+                                            {{$joinTable->durum}}
+                                        @endif
+                                    </td>
+                                </tr>
                             @endif
                         @endforeach
                         </tbody>
@@ -144,33 +130,44 @@
             </div>
         </div>
 
-
+        <!-- Parti Detayı -->
         <div class="col-md-6">
             <div class="card-box">
-                <div style="">
-                    <h4 class="header-title" style="margin-bottom: 20px">Parti Detayı
-                    </h4>
-                </div>
-                <div class="col-4" style="">
-                    @if(\Session::has('message'))
-                        <div class="alert alert-danger">
-                            <p>{{ \Session::get('message') }}</p>
-                        </div>
-                    @endif
 
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <p><br>{{ \Session::get('success') }}</p>
-                        </div>
+                <div style="position: absolute; right: 40px;">
+                    @if($satisKontrol->durum == 'Depoda')
+                        <button type="button" href="{{url('/')}}/admin/stok/kereste/sat/{{$partiID}}"
+                                class="btn btn-primary btn-lg satis-onay">
+                            <i class="fe-minus"></i> Seçileni Sat
+                        </button>
+                    @elseif($satisKontrol->durum == 'Satıldı')
+
+                        <a type="button" href="{{url('/')}}/admin/stok/kereste/geri/{{$partiID}}"
+                                class="btn btn-primary btn-md">
+                            <i class="mdi mdi-autorenew"></i> Geri al
+                        </a>
+                        <a type="button" href="{{url('/')}}/admin/stok/kereste/sil/{{$partiID}}"
+                                class="btn btn-danger btn-md sil-onay">
+                            <i class="fas fa-trash-alt"></i> Tamamen Sil
+                        </a>
                     @endif
+                </div>
+
+                <div style="">
+                    <h4 class="header-title" style="margin-bottom: 20px">Parti Detayı</h4>
+
+                </div>
+                <div class="col-md" style="">
 
                 </div>
                 <p class="sub-header">
-                @foreach($musteriDetay as $musteri)
-                    <strong>Müşteri: </strong> {{$musteri->musteriadi}}&emsp;&emsp;
-                    <strong>Müşteri Tel: </strong> {{$musteri->tel}}&emsp;&emsp;
-                    <strong>Ürün Kalitesi: </strong> {{$musteri->urun_kalitesi}}
-                @endforeach
+                    @include('admin.flash-message')
+                    <br>
+                    @foreach($musteriDetay as $musteri)
+                        <strong>Müşteri: </strong> {{$musteri->musteriadi}}&emsp;&emsp;
+                        <strong>Müşteri Tel: </strong> {{$musteri->tel}}&emsp;&emsp;
+                        <strong>Ürün Kalitesi: </strong> {{$musteri->urun_kalitesi}}
+                    @endforeach
                 </p>
                 <div class="col-4">
 
@@ -197,7 +194,8 @@
                                 <td>{{$datas[$i]['kln']}}</td>
                                 <td>{{$datas[$i]['en']}}</td>
                                 <td>{{$datas[$i]['boy']}}</td>
-                                <td class="satir_dm3" style="color: #0026ff"><strong>{{$datas[$i]['toplam_dm']}}</strong></td>
+                                <td class="satir_dm3" style="color: #0026ff">
+                                    <strong>{{$datas[$i]['toplam_dm']}}</strong></td>
                             </tr>
                         @endfor
                         </tbody>
@@ -205,7 +203,10 @@
                         <tr class="active">
                             <td colspan="5">
                                 <div class="" style="margin-right: 20px">
-                                    <ul class="pagination pagination-split justify-content-end footable-pagination"><strong>Toplam :  <label id="toplam_dm3" style="font-size:16px ;margin: 0px 10px; color: #0026ff"> </label> dm3 </strong></ul>
+                                    <ul class="pagination pagination-split justify-content-end footable-pagination">
+                                        <strong>Toplam : <label id="toplam_dm3"
+                                                                style="font-size:16px ;margin: 0px 10px; color: #0026ff"> </label>
+                                            dm3 </strong></ul>
                                 </div>
                             </td>
                         </tr>
@@ -218,15 +219,15 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('table thead th').each(function(i) {
+        $(document).ready(function () {
+            $('table thead th').each(function (i) {
                 calculateColumn(i);
             });
         });
 
         function calculateColumn(index) {
             var total = 0;
-            $('#demo-foo-filtering2 tr').each(function() {
+            $('#demo-foo-filtering2 tr').each(function () {
                 var value = parseInt($('.satir_dm3', this).eq(index).text());
                 if (!isNaN(value)) {
                     total += value;
@@ -239,5 +240,55 @@
         var satirSayisi = $(".satirSay").length;
         $('#toplamSatir').text(satirSayisi);
     </script>
+
+
+
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="{{url('/')}}/assets/admin/adminox/js/sweetalert-self.js"></script>
+    <script>
+        $('.satis-onay').on('click', function (event) {
+            event.preventDefault();
+            const url = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Ürün Satışı',
+                text: "Seçilen parti Satıldı olarak işaretlensin mi?",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'İşaretle!',
+                cancelButtonText: 'Vazgeç'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+
+        });
+
+
+        $('.sil-onay').on('click', function (event) {
+            event.preventDefault();
+            const url = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Kalıcı olarak silinecek',
+                text: "Emin Misiniz?",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sil!',
+                cancelButtonText: 'Vazgeç'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+
+        });
+    </script>
+
 
 @endsection

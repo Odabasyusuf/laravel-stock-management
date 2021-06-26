@@ -93,7 +93,8 @@
             </div>
         </div>
     </div>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="{{url('/')}}/assets/admin/adminox/js/sweetalert-self.js"></script>
     <script>
         $('.delete-confirm').on('click', function (event) {
             event.preventDefault();

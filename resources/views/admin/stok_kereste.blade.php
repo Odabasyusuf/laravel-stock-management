@@ -2,7 +2,7 @@
 
 @section('title','Kereste Stok Durumu')
 
-@section('h4baslik','Kereste Stok Durumu')
+@section('h4baslik',' ')
 
 @section('content')
 
@@ -21,7 +21,31 @@
 
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2">
+            <div class="card-box"> <h4 class="header-title"> Filtreleme </h4> <br />
+                <div class="col-12 text-sm-center">
+
+                    Seç:
+                    <div class="form-group">
+                        <select id="demo-foo-filter-status" class="custom-select" style="">
+                            <option value="">Tümünü Göster</option>
+                            <option value="Depoda">Depodakiler</option>
+                            <option value="Satıldı">Satılanlar</option>
+                        </select>
+                    </div>
+
+                    <br />
+                    Ara :
+                    <div class="form-group" style="">
+                        <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
+                               autocomplete="on">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            @include('admin.flash-message')
             <div class="card-box">
                 <div style="">
                     <h4 class="header-title"> Parti Seç
@@ -37,13 +61,13 @@
                 <div class="col-4">
 
                 </div>
-                <strong><u>Depodaki Parti Sayısı :</u> <label id="toplamSatir"
+                <strong><u>Tablodaki Parti Sayısı :</u> <label id="toplamSatir"
                                                               style="font-size:16px ;margin: 0px 10px;"> </label>
                 </strong>
 
                 <div class="mb-3">
                     <div class="row">
-                        <div class="col-12 text-sm-center form-inline">
+                        <!-- <div class="col-12 text-sm-center form-inline">
                             <div class="form-group mr-3">
 
                                 <select id="demo-foo-filter-status" class="custom-select" style="visibility: hidden;">
@@ -57,7 +81,7 @@
                                 <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
                                        autocomplete="on">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -81,16 +105,16 @@
                         @foreach($joinTables->sortBy('id') as $joinTable)
                             <tr class='clickable-row satirSay'
                                 data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
-                                <td>{{$joinTable->id}}</td>
+                                @if($joinTable->id<10)
+                                    <td style="font-size: 13px">0{{$joinTable->id}}</td>
+                                @else
+                                    <td>{{$joinTable->id}}</td>
+                                @endif
                                 <td>{{$joinTable->musteriadi}}</td>
                                 <td>{{$joinTable->urun_kalitesi}}</td>
                                 <td data-hide="phone,tablet">{{$joinTable->kalite_adi}}</td>
                                 <td style="text-align: center; font-weight: bold; font-size:13px;">
-                                    @if($joinTable->durum == 'Satıldı' )
-                                        -{{$joinTable->toplam_dm3}}
-                                    @else
                                         {{$joinTable->toplam_dm3}}
-                                    @endif
                                 </td>
                                 <td style="text-align: center;">
                                     @if($joinTable->durum == 'Satıldı' )
@@ -116,20 +140,11 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-
-            @if(\Session::has('message'))
-                <div class="alert alert-danger">
-                    <p>{{ \Session::get('message') }}</p>
-                </div>
-            @endif
-
-            @if (\Session::has('success'))
-                <div class="alert alert-success">
-                    <p><br><strong>{{ \Session::get('success') }}</strong></p>
-                </div>
-            @endif
-
+        <div class="col-md-2">
+            <div class="card-box">
+                Depoda :  <label id="dm3depo" style="font-size:16px ;margin: 0px 10px; color: #0026ff"> {{$dm3stok}} </label> dm3 <br /><br />
+                Satılan : <label id="dm3satilan" style="font-size:16px ;margin: 0px 10px; color: #0026ff"> {{$dm3satilan}} </label> dm3
+            </div>
         </div>
 
     </div>
