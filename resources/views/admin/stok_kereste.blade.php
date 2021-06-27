@@ -95,8 +95,8 @@
                             <th data-toggle="true">Müşteri Adı</th>
                             <th data-hide="">Kalite Kodu</th>
                             <th data-hide="">Ürün Kalitesi</th>
-                            <th data-hide="">Toplam Dm3</th>
-                            <th data-hide="">Durum</th>
+                            <th data-hide="" style="text-align: center;">Toplam Dm3</th>
+                            <th data-hide="" style="text-align: center;">Durum</th>
                         </tr>
                         </thead>
 

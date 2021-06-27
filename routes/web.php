@@ -30,9 +30,11 @@ Route::get('/admin/deneme2', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 //yeni tema deneme rotası
-Route::get('/admin/modern/anasayfa', function () {
-    return view('layouts.admin.modern.modernmaster');
+
+ Route::get('/admin/mobile/anasayfa', function () {
+    return view('layouts.admin.mobile.mobile_master');
 });
+
 
 
 // Giriş Çıkış İşlemleri
@@ -69,6 +71,12 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::get('/stok/kereste/sat/{id}', 'admin\StokController@stok_kereste_cikis')->name('stok_kereste_cikis');
     Route::get('/stok/kereste/geri/{id}', 'admin\StokController@stok_kereste_gerial')->name('stok_kereste_gerial');
     Route::get('/stok/kereste/sil/{id}', 'admin\StokController@stok_kereste_tsil')->name('stok_kereste_tsil');
+
+});
+
+// Tüm Admin Mobile rotaları
+Route::name('admin.')->prefix('admin/mobile')->middleware(['admin'])->group(function () {
+    Route::get('/partigiris', 'admin\Mobile\M_KerestePartiGiris@index')->name('partigiris');
 
 
 });
