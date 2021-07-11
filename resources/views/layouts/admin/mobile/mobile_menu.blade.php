@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li>
-                <a href="#applications">
+                <a href="{{route('admin.mobile.stok_mamul')}}">
                     <i class="iconsminds-air-balloon-1"></i> Stok Kereste
                 </a>
             </li>

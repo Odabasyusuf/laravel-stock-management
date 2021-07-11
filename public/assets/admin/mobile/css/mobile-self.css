@@ -28,8 +28,15 @@ body {
     right:10px;
 }
 
+.search-sm input {
+
+}
+
+
 .textbox-b-line {
     border: none;
     border-bottom:solid 1px #000000 !important;
     height: 25px;
 }
+
+

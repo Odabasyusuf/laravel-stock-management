@@ -54,6 +54,10 @@
                         <i class="fe-settings"></i>
                         <span>Ayarlar</span>
                     </a>
+                    <a href="{{route('mDashboard')}}" class="dropdown-item notify-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobil Sürüm</span>
+                    </a>
 
                     <!-- item-->
                     <!--

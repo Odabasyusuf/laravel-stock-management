@@ -60,7 +60,7 @@
 
     <div class="row mt-2">
         <div class="col-lg-12 col-xl-12">
-            <a href="#" class="card mb-2">
+            <a href="{{route('admin.mobile.stok_mamul')}}" class="card mb-2">
                 <div class="card-body text-center anasayfa-cards">
                     <i class="simple-icon-list anasayfa-cards-icon" style=""></i><br/>
                     <p class="card-text mt-2 anasayfa-cards-text"  style="">Kereste Listesi</p>

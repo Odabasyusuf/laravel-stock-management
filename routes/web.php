@@ -87,6 +87,8 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(fun
     Route::get('/musteri/edit/{id}', 'admin\Mobile\M_MusteriController@edit')->name('musteri_duzenle');
     Route::post('/musteri/update/{id}', 'admin\Mobile\M_MusteriController@update');
     Route::get('/musteri/sil/{id}', 'admin\Mobile\M_MusteriController@sil');
+
+    Route::get('/stokmamul', 'admin\Mobile\M_StokController@stok_mamul')->name('stok_mamul');
 });
 
 
