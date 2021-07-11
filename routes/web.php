@@ -65,7 +65,7 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::post('/partigiris/kaydet', 'admin\KerestePartiGiris@kaydet')->name('musteripartikaydet');
 
 
-    Route::get('/stok/index', 'admin\StokController@index')->name('stok_index');
+ //   Route::get('/stok/index', 'admin\StokController@index')->name('stok_index');
     Route::get('/stok/kereste', 'admin\StokController@stok_kereste')->name('stok_kereste');
     Route::get('/stok/kereste/{id}', 'admin\StokController@stok_kereste_detay')->name('stok_kereste_detay');
     Route::get('/stok/kereste/sat/{id}', 'admin\StokController@stok_kereste_cikis')->name('stok_kereste_cikis');
@@ -75,10 +75,18 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
 });
 
 // Tüm Admin Mobile rotaları
-Route::name('admin.')->prefix('admin/mobile')->middleware(['admin'])->group(function () {
+Route::get('/mobile', 'admin\AdminController@mobile_index')->name('mDashboard')->middleware(['admin']);
+
+Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(function () {
     Route::get('/partigiris', 'admin\Mobile\M_KerestePartiGiris@index')->name('partigiris');
+    Route::post('/partigiris/kaydet', 'admin\Mobile\M_Ke restePartiGiris@kaydet')->name('kerestepartikaydet');
+    Route::get('/particikis', 'admin\Mobile\M_StokController@kereste_cikis_sayfa')->name('kerestecikissayfa');
+    Route::post('/particikis/sat/', 'admin\Mobile\M_StokController@kereste_parti_cikis')->name('keresteparticikis');
 
-
+    Route::get('/musteriler', 'admin\Mobile\M_MusteriController@index')->name('musterilistesi');
+    Route::get('/musteri/edit/{id}', 'admin\Mobile\M_MusteriController@edit')->name('musteri_duzenle');
+    Route::post('/musteri/update/{id}', 'admin\Mobile\M_MusteriController@update');
+    Route::get('/musteri/sil/{id}', 'admin\Mobile\M_MusteriController@sil');
 });
 
 

@@ -6,3 +6,30 @@
     left: 0px !important;
     z-index: 1 !important;
 }
+
+html {
+    background: #ffffff; !important;}
+body {
+    background: #ffffff; !important;}
+
+.anasayfa-cards {
+}
+.anasayfa-cards-icon {
+    font-size: 25px;
+}
+.anasayfa-cards-text {
+    font-size: 15px;
+}
+
+.musteri-call-icon {
+    font-size: 25px !important;
+    position:absolute;
+    top:20px;
+    right:10px;
+}
+
+.textbox-b-line {
+    border: none;
+    border-bottom:solid 1px #000000 !important;
+    height: 25px;
+}

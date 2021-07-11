@@ -2,13 +2,13 @@
     <div class="scroll">
         <ul class="list-unstyled">
             <li class="active">
-                <a href="#dashboard">
+                <a href="{{url('/')}}/mobile">
                     <i class="iconsminds-shop-4"></i>
                     <span>Anasayfa</span>
                 </a>
             </li>
             <li>
-                <a href="{{url('/')}}/admin/mobile/musteriler">
+                <a href="{{url('/')}}/mobile/musteriler">
                     <i class="iconsminds-digital-drawing"></i> Müşteriler
                 </a>
             </li>
@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('/')}}/admin/mobile/partigiris">
+                <a href="{{url('/')}}/mobile/partigiris">
                     <i class="iconsminds-pantone"></i> Kereste Girişi
                 </a>
             </li>

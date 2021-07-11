@@ -16,7 +16,7 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{route('admin.stok_index')}}"><i class="icon-layers"></i>Stok Tomruk
+                    <a href="#"><i class="icon-layers"></i>Stok Tomruk
                     </a>
                 </li>
 

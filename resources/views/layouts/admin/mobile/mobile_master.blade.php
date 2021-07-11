@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/dore.light.blueolympic.min.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/main.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/mobile-self.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -37,7 +38,7 @@
 
 <main>
     <div class="container-fluid">
-        <div class="row">
+       <!-- <div class="row">
             <div class="col-12">
 
                 <h1>@yield('h1baslik')</h1>
@@ -52,7 +53,7 @@
                 <div class="separator mb-5"></div>
             </div>
         </div>
-
+        -->
         @yield("content")
     </div>
 </main>

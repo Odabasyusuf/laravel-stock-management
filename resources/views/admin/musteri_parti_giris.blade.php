@@ -36,6 +36,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+
+    <!-- Vendor js -->
+    <script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
+
+    <!--Form Wizard-->
+    <script src="{{url('/')}}/assets/admin/adminox/libs/stepy/jquery.stepy.js"></script>
+
+    <!-- Validation init js-->
+    <script src="{{url('/')}}/assets/admin/adminox/js/pages/wizard.init.js"></script>
+
+    <!-- App js -->
+    <script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
+
 </head>
 
 <body class="unsticky-header" data-layout="horizontal">
@@ -264,19 +277,6 @@
     </div>
 </div>
 <!-- END wrapper -->
-
-
-<!-- Vendor js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
-
-<!--Form Wizard-->
-<script src="{{url('/')}}/assets/admin/adminox/libs/stepy/jquery.stepy.js"></script>
-
-<!-- Validation init js-->
-<script src="{{url('/')}}/assets/admin/adminox/js/pages/wizard.init.js"></script>
-
-<!-- App js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
 
 
 <!--

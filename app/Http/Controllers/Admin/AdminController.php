@@ -22,6 +22,10 @@ class AdminController extends Controller
     {
         return view('layouts.admin.amaster');
     }
+    public function mobile_index()
+    {
+        return view('admin.mobile.anasayfa');
+    }
 
     /**
      * Show the form for creating a new resource.

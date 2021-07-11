@@ -81,9 +81,9 @@
     <div class="user d-inline-block">
         <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-            <span class="name">Yusuf</span>
-            <span>
-                        <img alt="Profile Picture" src="{{url('/')}}/assets/admin/mobile/img/profiles/l-2.jpg" />
+
+            <span> <span class="" style="font-size: 20px">Yenorsan</span>
+                       <!-- <img alt="Profile Picture" src="{{url('/')}}/assets/admin/mobile/img/profiles/l-2.jpg" /> -->
                     </span>
         </button>
 

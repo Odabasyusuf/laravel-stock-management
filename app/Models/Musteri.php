@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Musteri extends Model
 {
     use HasFactory;
+    protected $fillable = ['musteriadi','tel','adres'];
 }

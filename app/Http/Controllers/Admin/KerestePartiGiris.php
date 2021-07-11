@@ -64,7 +64,7 @@ class KerestePartiGiris extends Controller
 
         $kayit = array();
         for ($i = 0; $i < $sayac; $i++) {
-            if($request->toplam_dm[$i] == null){
+            if($request->toplam_dm[$i] == null  || $request->toplam_dm[$i] == 0){
                 continue;
             }
 
