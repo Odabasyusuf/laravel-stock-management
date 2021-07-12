@@ -43,28 +43,17 @@
         <div class="col-12 data-tables-hide-filter">
             <div class="card">
 
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row view-filter"><div class="col-sm-12"><div class="float-left"></div><div class="float-right"></div><div class="clearfix"></div></div></div><table class="data-table data-tables-pagination responsive nowrap dataTable no-footer dtr-inline collapsed" data-order="[[ 1, &quot;desc&quot; ]]" id="DataTables_Table_0" role="grid" style="width: 740px;">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row view-filter"><div class="col-sm-12"><div class="float-left"></div><div class="float-right"></div><div class="clearfix"></div></div></div><table class="data-table data-tables-pagination responsive nowrap dataTable no-footer dtr-inline collapsed" data-order="[[ 1, &quot;asc&quot; ]]" id="DataTables_Table_0" role="grid">
                             <thead>
                             <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 261px;"
-                                    aria-label="Name: activate to sort column ascending">Müşteri
+                                <th class="" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                    colspan="1" style="width: 25px;"
+                                    aria-label="Name: activate to sort column ascending">Blok No
+                                </th><th class="" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                    colspan="1" style="text-align: center"
+                                    aria-label="Name: activate to sort column ascending">Detay
                                 </th>
-                                <th class="sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 102px;" aria-sort="descending"
-                                    aria-label="Sales: activate to sort column ascending">Toplam dm3
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 104px;"
-                                    aria-label="Stock: activate to sort column ascending">Durum
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Ağaç Türü
-                                </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Blok No
-                                </th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -72,18 +61,38 @@
                             @foreach($joinTables as $parti)
                                 <tr role="row" class="odd">
                                     <td tabindex="0" style="">
-                                        <p class="list-item-heading">{{$parti->musteriadi}}</p>
+                                        <p class="list-item-heading" style="text-align: center">#{{$parti->id}}</p>
                                     </td><td tabindex="0" style="">
-                                        <p class="list-item-heading" style="text-align: center">{{$parti->toplam_dm3}}</p>
-                                    </td>
-                                    <td class="sorting_1">
-                                        <p class="text-muted">{{$parti->durum}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-muted">{{$parti->agac_turu}}</p>
-                                    </td>
-                                    <td style="display: none;">
-                                        <p class="text-muted">{{$parti->id}}</p>
+                                        <i class="list-item-heading">
+
+
+                                                <p class="mb-0">
+                                                    @if($parti->durum == "Depoda")
+                                                        <button class="btn btn-primary mb-1 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample{{$parti->id}}" aria-expanded="true" aria-controls="collapseExample">
+                                                    @else
+                                                            <button class="btn btn-success   mb-1 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample{{$parti->id}}" aria-expanded="true" aria-controls="collapseExample">
+                                                    @endif
+                                                         @if($parti->durum == "Depoda")
+                                                            {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
+                                                        @else
+                                                              SATILDI      <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
+                                                        @endif
+                                                    </button>
+                                                </p>
+                                            <div class="collapse" id="collapseExample{{$parti->id}}" style="">
+                                                <div class="p-4 border mt-4">
+                                                    <p class="mb-0">
+                                                        <strong>Blok No :</strong> {{$parti->id}} <br /> <br />
+                                                        <strong>Müşteri Adı :</strong> {{$parti->musteriadi}} <br /> <br />
+                                                        <strong>Ağaç Türü :</strong> {{$parti->agac_turu}} <br /> <br />
+                                                        <strong>Sat :</strong> <br />
+
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+                                        </i>
                                     </td>
                                 </tr>
                             @endforeach

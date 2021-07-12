@@ -13,11 +13,21 @@ body {
     background: #ffffff; !important;}
 
 .anasayfa-cards {
+    border: 1px solid #3195a5 !important;
+    border-radius: 20px !important;
+}
+@media (max-width: 575px) {
+    .anasayfa-cards {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
 }
 .anasayfa-cards-icon {
+    color: #3195a5;
     font-size: 25px;
 }
 .anasayfa-cards-text {
+    color: #3195a5;
     font-size: 15px;
 }
 
@@ -37,6 +47,19 @@ body {
     border: none;
     border-bottom:solid 1px #000000 !important;
     height: 25px;
+}
+
+.anadiv-default-transition{
+    margin-top: 20px !important;
+}
+.main-menu-css{
+    border: 1px solid #3195a5 !important;
+    border-top-right-radius:  20px !important;
+    border-bottom-right-radius:  20px !important;
+}
+
+.main-menu-css ul li a {
+    height: 70px !important;
 }
 
 

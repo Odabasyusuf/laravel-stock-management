@@ -29,14 +29,14 @@
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
-<nav class="navbar fixed-top">
+<nav class="navbar inherit">
     @include('layouts.admin.mobile.mobile_navbar')
 </nav>
 <div class="menu">
     @include('layouts.admin.mobile.mobile_menu')
 </div>
 
-<main>
+<main class="anadiv-default-transition">
     <div class="container-fluid">
        <!-- <div class="row">
             <div class="col-12">

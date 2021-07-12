@@ -33,7 +33,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>-->
-                        <input type="text" class="form-control textbox-b-line" name="musteri_adi" id="musteri_adi" value="" style="text-align: center">
+                        <input type="text" class="form-control textbox-b-line" name="musteri_adi" id="musteri_adi" value="" style="text-align: center" required>
                     </div>
 
                     <div class="form-group">

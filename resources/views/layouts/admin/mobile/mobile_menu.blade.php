@@ -1,4 +1,4 @@
-<div class="main-menu">
+<div class="main-menu main-menu-css">
     <div class="scroll">
         <ul class="list-unstyled">
             <li class="active">
@@ -23,12 +23,12 @@
                 </a>
             </li>
             <li>
-                <a href="#menu">
+                <a href="{{route('admin.mobile.stok_hammadde')}}">
                     <i class="iconsminds-three-arrow-fork"></i> Stok Tomruk
                 </a>
             </li>
             <li>
-                <a href="Blank.Page.html">
+                <a href="{{route('admin.mobile.hammadde_giris_sayfa')}}">
                     <i class="iconsminds-bucket"></i> Tomruk Girişi
                 </a>
             </li>

@@ -51,4 +51,29 @@ class M_StokController extends Controller
         return view('admin.mobile.m_stok_kereste',compact(['musteriler','joinTables']));
 
     }
+    public function stok_mamul_musteri($id){
+        $musteriler = Musteri::find($id)->get();
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
+            ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->where('musteris.id','=', $id)
+            ->get();
+
+        return view('admin.mobile.m_stok_kereste',compact(['musteriler','joinTables']));
+
+    }
+
+    public function stok_hammadde(){
+        $musteriler = Musteri::orderBy("musteriadi",'asc')->get();
+
+        $joinTables = DB::table('musteris')
+            ->join('hammadde_partis','hammadde_partis.musteri_id','=', 'musteris.id')
+            ->select('hammadde_partis.*','musteris.musteriadi')
+            ->get();
+
+        return view('admin.mobile.m_stok_hammadde',compact(['musteriler','joinTables']));
+
+    }
 }
