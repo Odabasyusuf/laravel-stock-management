@@ -33,7 +33,12 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>-->
-                        <input type="text" class="form-control textbox-b-line" name="musteri_adi" id="musteri_adi" value="" style="text-align: center" required>
+                        <input type="text" class="form-control textbox-b-line" name="musteri_adi" id="musteri_adi" list="musterilistesi" style="text-align: center" required autocomplete="off">
+                        <datalist id="musterilistesi">
+                            @foreach($musteriler as $musteri)
+                                <option value="{{$musteri}}" />
+                            @endforeach
+                        </datalist>
                     </div>
 
                     <div class="form-group">

@@ -85,7 +85,21 @@
                                                         <strong>Blok No :</strong> {{$parti->id}} <br /> <br />
                                                         <strong>Müşteri Adı :</strong> {{$parti->musteriadi}} <br /> <br />
                                                         <strong>Ağaç Türü :</strong> {{$parti->agac_turu}} <br /> <br />
-                                                        <strong>Sat :</strong> <br />
+                                                        <strong>Ürün Kalitesi :</strong> {{$parti->urun_kalitesi}} <br /> <br />
+                                                        <a href="#{{$parti->id}}"><button type="button" class="btn btn-outline-primary mb-1 stok-mamul-yazdir-button">
+                                                                <i class="simple-icon-printer" style="font-size: 20px"></i>
+                                                            </button></a>
+                                                        <button type="button" class="btn btn-outline-dark">{{$parti->toplam_dm3}} dm3</button>
+                                                        @if($parti->durum == 'Depoda')
+                                                        <a href="{{url('/')}}/mobile/particikis/{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button">
+                                                            <i class="iconsminds-right"></i> Seçileni Sat
+                                                        </button></a>
+                                                        @else
+
+                                                        @endif
+
+
+
 
                                                     </p>
                                                 </div>
@@ -104,6 +118,8 @@
             </div>
         </div>
     </div>
+
+
 
 
 @endsection

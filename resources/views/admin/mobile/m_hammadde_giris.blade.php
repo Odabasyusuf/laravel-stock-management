@@ -14,34 +14,39 @@
         @csrf
 
         <div class="form-group">
-            <label class="col-form-label" for="miktar">Miktar (m3/dm3)</label>
-            <input type="text" class="form-control" name="miktar" id="miktar">
+            <label class="col-form-label" for="miktar">Miktar (m3)</label>
+            <input type="text" class="form-control" name="miktar" id="miktar" autocomplete="off">
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="adet">Adet</label>
-            <input type="text" class="form-control" name="adet" id="adet">
+            <input type="text" class="form-control" name="adet" id="adet" autocomplete="off">
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="musteri_adi">Müşteri / Mal Sahibi</label>
-            <input type="text" class="form-control" name="musteri_adi" id="musteri_adi" required>
+            <input type="text" class="form-control" name="musteri_adi" id="musteri_adi" list="musterilistesi" required autocomplete="off">
+            <datalist id="musterilistesi" style = "display:none;">
+                @foreach($musteriler as $musteri)
+                <option value="{{$musteri}}" />
+                @endforeach
+            </datalist>
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="arac_plaka">Araç Plakası</label>
-            <input type="text" class="form-control" name="arac_plaka" id="arac_plaka">
+            <input type="text" class="form-control" name="arac_plaka" id="arac_plaka" autocomplete="off">
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="nakliye_seri_no">Nakliye Tezkere Seri/No</label>
-            <input type="text" class="form-control" name="nakliye_seri_no" id="nakliye_seri_no">
+            <input type="text" class="form-control" name="nakliye_seri_no" id="nakliye_seri_no" autocomplete="off">
         </div>
 
         <div class="form-group">
             <label for="agac_turu" class="col-form-label">Ağaç Türü</label>
             <select name="agac_turu" id="agac_turu" class="form-control">
-                <
+
                 <option value="" selected="selected">Seçiniz</option>
                 <option value="Kızılçam">Kızılçam</option>
                 <option value="Karaçam">Karaçam</option>
@@ -134,12 +139,12 @@
 
         <div class="form-group">
             <label class="col-form-label" for="gelis_yeri">Ürünleri Satan İşletme</label>
-            <input type="text" class="form-control" name="gelis_yeri" id="gelis_yeri">
+            <input type="text" class="form-control" name="gelis_yeri" id="gelis_yeri" autocomplete="off">
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="emval_yeri">Emvalin Bulunduğu Yer</label>
-            <input type="text" class="form-control" name="emval_yeri" id="emval_yeri">
+            <input type="text" class="form-control" name="emval_yeri" id="emval_yeri" autocomplete="off">
         </div>
 
         <div class="form-group">

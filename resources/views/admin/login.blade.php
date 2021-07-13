@@ -66,7 +66,7 @@
                                                 <div class="col-12">
                                                     <label for="emailaddress">Kullanıcı Adı</label>
                                                     <input class="form-control" type="email" name="email" id="email"
-                                                           required placeholder="">
+                                                           value="yusuf.odabas.78@gmail.com"  required placeholder="">
                                                 </div>
                                             </div>
 
@@ -77,7 +77,7 @@
                                                     -->
                                                     <label for="password">Şifre</label>
                                                     <input class="form-control" type="password" name="password"
-                                                           id="password" required placeholder="">
+                                                           value="123456789" id="password" required placeholder="">
                                                 </div>
                                             </div>
 
@@ -85,7 +85,7 @@
                                                 <div class="col-12">
 
                                                     <div class="checkbox checkbox-success">
-                                                        <input id="remember" type="checkbox" checked="">
+                                                        <input id="remember" name="remember" type="checkbox" checked="">
                                                         <label for="remember">
                                                             Beni Hatırla
                                                         </label>

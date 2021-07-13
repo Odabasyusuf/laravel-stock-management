@@ -19,8 +19,7 @@ class StokController extends Controller
 
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
-            ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
-            ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->select('kereste_partis.*','musteris.musteriadi')
             ->get();
 
         $dm3stok = Kereste_parti::where('durum','Depoda')->sum('toplam_dm3');
@@ -37,8 +36,7 @@ class StokController extends Controller
 
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id', '=','musteris.id')
-            ->join('kalite_kereste','kalite_kereste.kalite_kodu','=', 'kereste_partis.urun_kalitesi')
-            ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->select('kereste_partis.*','musteris.musteriadi')
             ->orderBy('kereste_partis.id','asc')
             ->get();
 

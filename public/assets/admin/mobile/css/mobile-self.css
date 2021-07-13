@@ -62,4 +62,18 @@ body {
     height: 70px !important;
 }
 
+.menu .main-menu {
+    text-align: center !important;
+}
 
+
+.stok-mamul-sat-button{
+}
+.stok-mamul-yazdir-button{
+    position: absolute !important;
+    right: 15px !important;
+    margin-top: -180px !important;
+}
+.stok-mamul-toplam-dm3{
+    left: 1000px !important;
+}

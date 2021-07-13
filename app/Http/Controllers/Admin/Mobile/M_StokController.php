@@ -12,6 +12,7 @@ class M_StokController extends Controller
 {
 
    public function kereste_cikis_sayfa(){
+       $secilenParti_id = null;
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
             ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
@@ -22,8 +23,20 @@ class M_StokController extends Controller
         //return dd($joinTables);
 
 
-        return view('admin.mobile.m_kereste_cikis',compact(['joinTables']));
+        return view('admin.mobile.m_kereste_cikis',compact(['joinTables','secilenParti_id']));
 
+    }
+    public function kereste_cikis_sayfa_idli($id){
+        $secilenParti_id = Kereste_parti::where('id', $id)->get(['id']);
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
+            ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->get();
+
+
+        return view('admin.mobile.m_kereste_cikis',compact(['secilenParti_id','joinTables']));
     }
 
     public function kereste_parti_cikis(Request $request){
@@ -44,8 +57,7 @@ class M_StokController extends Controller
 
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
-            ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
-            ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->select('kereste_partis.*','musteris.musteriadi')
             ->get();
 
         return view('admin.mobile.m_stok_kereste',compact(['musteriler','joinTables']));
@@ -56,8 +68,7 @@ class M_StokController extends Controller
 
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
-            ->join('kalite_kereste','kalite_kereste.kalite_kodu', '=','kereste_partis.urun_kalitesi')
-            ->select('kereste_partis.*','musteris.musteriadi','kalite_kereste.kalite_adi')
+            ->select('kereste_partis.*','musteris.musteriadi')
             ->where('musteris.id','=', $id)
             ->get();
 

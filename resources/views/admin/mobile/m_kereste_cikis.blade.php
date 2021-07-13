@@ -20,7 +20,9 @@
         <select name="blok_no" id="blok_no" class="form-control">
             <option value="" selected="selected">Seçiniz</option>
             @foreach($joinTables->sortBy('id') as $joinTable)
-                <option value="{{$joinTable->id}}">{{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}</option>
+                <option value="{{$joinTable->id}}"  @if($secilenParti_id != null) @foreach($secilenParti_id as $aaa) @if($aaa->id == $joinTable->id) selected="selected" @endif @endforeach @endif>
+                    {{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
+                </option>
             @endforeach
         </select>
     </div>

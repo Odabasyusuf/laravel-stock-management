@@ -92,9 +92,9 @@
                         <thead>
                         <tr>
                             <th width="5%">#</th>
-                            <th data-toggle="true">Müşteri Adı</th>
-                            <th data-hide="">Kalite Kodu</th>
-                            <th data-hide="">Ürün Kalitesi</th>
+                            <th data-toggle="true" style="text-align: center;">Müşteri Adı</th>
+                            <th data-hide="" style="text-align: center;">Ağaç Türü</th>
+                            <th data-hide="" style="text-align: center;">Ürün Kalitesi</th>
                             <th data-hide="" style="text-align: center;">Toplam Dm3</th>
                             <th data-hide="" style="text-align: center;">Durum</th>
                         </tr>
@@ -110,9 +110,9 @@
                                 @else
                                     <td>{{$joinTable->id}}</td>
                                 @endif
-                                <td>{{$joinTable->musteriadi}}</td>
-                                <td>{{$joinTable->urun_kalitesi}}</td>
-                                <td data-hide="phone,tablet">{{$joinTable->kalite_adi}}</td>
+                                <td style="text-align: center;">{{$joinTable->musteriadi}}</td>
+                                <td style="text-align: center;">{{$joinTable->agac_turu}}</td>
+                                <td style="text-align: center;">{{$joinTable->urun_kalitesi}}</td>
                                 <td style="text-align: center; font-weight: bold; font-size:13px;">
                                         {{$joinTable->toplam_dm3}}
                                 </td>

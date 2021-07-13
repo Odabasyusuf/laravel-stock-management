@@ -1,35 +1,37 @@
 <div class="main-menu main-menu-css">
     <div class="scroll">
         <ul class="list-unstyled">
-            <li class="active">
+            <li>
                 <a href="{{url('/')}}/mobile">
-                    <i class="iconsminds-shop-4"></i>
+                    <i class="simple-icon-screen-desktop"></i>
                     <span>Anasayfa</span>
                 </a>
             </li>
             <li>
                 <a href="{{url('/')}}/mobile/musteriler">
-                    <i class="iconsminds-digital-drawing"></i> Müşteriler
+                    <i class="iconsminds-male"></i> Müşteriler
                 </a>
             </li>
+            <br />
             <li>
                 <a href="{{route('admin.mobile.stok_mamul')}}">
-                    <i class="iconsminds-air-balloon-1"></i> Stok Kereste
+                    <i class="iconsminds-check"></i> Mamul Stok
                 </a>
             </li>
             <li>
                 <a href="{{url('/')}}/mobile/partigiris">
-                    <i class="iconsminds-pantone"></i> Kereste Girişi
+                    <i class="iconsminds-add-space-before-paragraph"></i> Mamul Girişi
                 </a>
             </li>
+            <br />
             <li>
                 <a href="{{route('admin.mobile.stok_hammadde')}}">
-                    <i class="iconsminds-three-arrow-fork"></i> Stok Tomruk
+                    <i class="iconsminds-check"></i> Hammadde Stok
                 </a>
             </li>
             <li>
                 <a href="{{route('admin.mobile.hammadde_giris_sayfa')}}">
-                    <i class="iconsminds-bucket"></i> Tomruk Girişi
+                    <i class="iconsminds-add mt-2"></i> Hammadde Girişi
                 </a>
             </li>
         </ul>

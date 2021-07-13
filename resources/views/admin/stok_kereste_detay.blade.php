@@ -67,7 +67,7 @@
                         <tr>
                             <th width="5%">#</th>
                             <th data-toggle="true">Müşteri Adı</th>
-                            <th data-hide="">Kalite Kodu</th>
+                            <th data-hide="">Ağaç Türü</th>
                             <th data-hide="">Ürün Kalitesi</th>
                             <th data-hide="">Toplam Dm3</th>
                             <th data-hide="">Durum</th>
@@ -82,8 +82,9 @@
                                     data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
                                     <td>{{$joinTable->id}}</td>
                                     <td>{{$joinTable->musteriadi}}</td>
+                                    <td>{{$joinTable->agac_turu}}</td>
                                     <td>{{$joinTable->urun_kalitesi}}</td>
-                                    <td>{{$joinTable->kalite_adi}}</td>
+
                                     <td style="text-align: center; font-weight: bold; font-size:13px;">
                                             {{$joinTable->toplam_dm3}}
                                     </td>
@@ -100,8 +101,8 @@
                                     data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
                                     <td>{{$joinTable->id}}</td>
                                     <td>{{$joinTable->musteriadi}}</td>
+                                    <td>{{$joinTable->agac_turu}}</td>
                                     <td>{{$joinTable->urun_kalitesi}}</td>
-                                    <td>{{$joinTable->kalite_adi}}</td>
                                     <td style="text-align: center; font-weight: bold; font-size:13px;">
                                             {{$joinTable->toplam_dm3}}
                                     </td>

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\DB;
 class M_KerestePartiGiris extends Controller
 {
     public function index(){
-        return view('admin.mobile.kereste_parti_giris');
+        $musteriler = Musteri::orderBy('id','asc')->pluck('musteriadi');
+
+        return view('admin.mobile.kereste_parti_giris',compact('musteriler'));
     }
 
     public function kaydet(Request $request)

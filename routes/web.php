@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('admin/login');
+    return redirect('/admin');
 });
 
 Route::get('/admin/deneme', function () {
@@ -81,7 +81,8 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(fun
     Route::get('/partigiris', 'admin\Mobile\M_KerestePartiGiris@index')->name('partigiris');
     Route::post('/partigiris/kaydet', 'admin\Mobile\M_KerestePartiGiris@kaydet')->name('kerestepartikaydet');
     Route::get('/particikis', 'admin\Mobile\M_StokController@kereste_cikis_sayfa')->name('kerestecikissayfa');
-    Route::post('/particikis/sat/', 'admin\Mobile\M_StokController@kereste_parti_cikis')->name('keresteparticikis');
+    Route::get('/particikis/{id}', 'admin\Mobile\M_StokController@kereste_cikis_sayfa_idli');
+    Route::post('/particikis/sat', 'admin\Mobile\M_StokController@kereste_parti_cikis')->name('keresteparticikis');
 
     Route::get('/hammaddegiris', 'admin\Mobile\M_HammaddeController@hammadde_giris_sayfa')->name('hammadde_giris_sayfa');
     Route::post('/hammaddegiris/kaydet', 'admin\Mobile\M_HammaddeController@hammadde_giris_kaydet')->name('hammadde_giris_kaydet');

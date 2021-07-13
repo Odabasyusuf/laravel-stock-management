@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\DB;
 class M_HammaddeController extends Controller
 {
     public function hammadde_giris_sayfa(){
-       return view('admin.mobile.m_hammadde_giris');
+
+        $musteriler = Musteri::orderBy('id','asc')->pluck('musteriadi');
+
+       return view('admin.mobile.m_hammadde_giris',compact('musteriler'));
     }
 
     public function hammadde_giris_kaydet(Request $request){
@@ -20,7 +23,7 @@ class M_HammaddeController extends Controller
             'musteriadi' => request('musteri_adi')
         ]);
 
-        //$musteri -> save();
+        $musteri -> save();
 
         // Girilen musterinin bilgisini cekiyoruz
         $user = DB::table('musteris')->where('musteriadi', $request->musteri_adi)->first();
