@@ -76,6 +76,7 @@ class M_StokController extends Controller
 
     }
 
+
     public function stok_hammadde(){
         $musteriler = Musteri::orderBy("musteriadi",'asc')->get();
 

@@ -96,6 +96,8 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(fun
     Route::get('/stokmamul', 'admin\Mobile\M_StokController@stok_mamul')->name('stok_mamul');
     Route::get('/stokmamul/{id}', 'admin\Mobile\M_StokController@stok_mamul_musteri')->name('stok_mamul_musteri');
 
+    Route::get('/stokmamul/yazdir/{id}', 'admin\Mobile\M_YazdirController@stok_mamul_yazdir')->name('stok_mamul_yazdir');
+
 });
 
 
