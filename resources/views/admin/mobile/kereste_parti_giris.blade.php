@@ -132,7 +132,7 @@
                             <option value="Mazı Meşesi">Mazı Meşesi</option>
                         </select>
                     </div>
- <div class="form-group">
+                    <div class="form-group">
                         <label for="urun_kalitesi" class="col-form-label">Ürün Kalitesi</label>
                         <select name="urun_kalitesi" id="urun_kalitesi" class="form-control">
                             <option value="1. Sınıf">1. Sınıf</option>

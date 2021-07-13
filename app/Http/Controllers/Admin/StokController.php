@@ -115,4 +115,17 @@ class StokController extends Controller
     }
 
 
+
+    public function stok_tomruk(){
+        $joinTables = DB::table('musteris')
+            ->join('hammadde_partis','hammadde_partis.musteri_id', '=','musteris.id')
+            ->select('hammadde_partis.*','musteris.musteriadi')
+            ->orderBy('hammadde_partis.id','asc')
+            ->get();
+
+
+
+        return view('admin.stok_tomruk',compact(['joinTables']));
+    }
+
 }

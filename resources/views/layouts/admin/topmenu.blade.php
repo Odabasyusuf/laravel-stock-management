@@ -16,19 +16,20 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"><i class="icon-layers"></i>Stok Tomruk
+                    <a href="{{route('admin.stok_tomruk')}}"><i class="icon-layers"></i>Stok Tomruk
+                    </a>
+                </li>
+
+
+                <li class="has-submenu">
+                    <a href="#">
+                        <i class="fe-plus-circle"></i>Tomruk Girişi
                     </a>
                 </li>
 
                 <li class="has-submenu">
                     <a href="{{route('admin.stok_kereste')}}">
                         <i class="icon-layers"></i>Stok Kereste
-                    </a>
-                </li>
-
-                <li class="has-submenu">
-                    <a href="#">
-                        <i class="fe-plus-circle"></i>Tomruk Girişi
                     </a>
                 </li>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Musteri;
 use Illuminate\Http\Request;
 use App\Models\Kereste_parti;
+use Illuminate\Support\Facades\DB;
 
 class KerestePartiGiris extends Controller
 {
@@ -58,6 +59,17 @@ class KerestePartiGiris extends Controller
 
     public function kaydet(Request $request)
     {
+        /*   Aynı isimde MUSTERI varsa kaydetma yoksa kaydet    */
+        $musteri = Musteri::firstOrNew([
+            'musteriadi' => request('musteri_adi')
+        ]);
+        $musteri -> save();
+
+        // Girilen musterinin bilgisini cekiyoruz
+        $user = DB::table('musteris')->where('musteriadi', $request->musteri_adi)->first();
+
+
+
 
         $sayac = count($request->toplam_dm);
 
@@ -78,10 +90,13 @@ class KerestePartiGiris extends Controller
         $kayitencode = json_encode($kayit);
 
         $musteriParti = new Kereste_parti();
-        $musteriParti->musteri_id = $request->musteri_id;
+        $musteriParti->musteri_id = $user->id;
         $musteriParti->urun_kalitesi = $request->urun_kalitesi;
+        $musteriParti->agac_turu = $request->agac_turu;
         $musteriParti->parti_detay = $kayitencode;
         $musteriParti->toplam_dm3 = $request->subtotal;
+        $musteriParti->servis1 = $request->servis_saglayan_1;
+        $musteriParti->servis2 = $request->servis_saglayan_2;
 
         $musteriParti->save();
 

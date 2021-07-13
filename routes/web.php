@@ -72,6 +72,7 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::get('/stok/kereste/geri/{id}', 'admin\StokController@stok_kereste_gerial')->name('stok_kereste_gerial');
     Route::get('/stok/kereste/sil/{id}', 'admin\StokController@stok_kereste_tsil')->name('stok_kereste_tsil');
 
+    Route::get('/stok/tomruk', 'admin\StokController@stok_tomruk')->name('stok_tomruk');
 });
 
 // Tüm Admin Mobile rotaları

@@ -75,7 +75,7 @@
                                                          @if($parti->durum == "Depoda")
                                                             {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
                                                         @else
-                                                              SATILDI      <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
+                                                              SATILDI  |  {{substr($parti->updated_at, 0, 10)}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
                                                         @endif
                                                     </button>
                                                 </p>
