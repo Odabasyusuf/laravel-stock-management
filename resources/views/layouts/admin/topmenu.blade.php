@@ -22,7 +22,7 @@
 
 
                 <li class="has-submenu">
-                    <a href="#">
+                    <a href="{{route('admin.tomrukgiris')}}">
                         <i class="fe-plus-circle"></i>Tomruk Girişi
                     </a>
                 </li>

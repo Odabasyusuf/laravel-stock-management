@@ -64,6 +64,9 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     //Route::post('/partigiris/detay', 'admin\KerestePartiGiris@detay')->name('musteripartikaydet');
     Route::post('/partigiris/kaydet', 'admin\KerestePartiGiris@kaydet')->name('musteripartikaydet');
 
+    Route::get('/tomrukgiris', 'admin\TomrukGirisController@tomruk_giris_sayfa')->name('tomrukgiris');
+    Route::post('/tomrukgiris/kaydet', 'admin\TomrukGirisController@tomruk_giris_kaydet')->name('tomrukgiriskaydet');
+
 
  //   Route::get('/stok/index', 'admin\StokController@index')->name('stok_index');
     Route::get('/stok/kereste', 'admin\StokController@stok_kereste')->name('stok_kereste');
