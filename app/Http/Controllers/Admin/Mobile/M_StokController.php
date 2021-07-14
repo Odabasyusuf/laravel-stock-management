@@ -39,8 +39,8 @@ class M_StokController extends Controller
     public function kereste_parti_cikis(Request $request){
         $secilenParti = Kereste_parti::find($request->blok_no);
 
-        //$secilenParti -> durum = "Satıldı";
-//        $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
+        $secilenParti -> durum = "Satıldı";
+        $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
         $secilenParti -> arac_plaka = $request->arac_plaka;
         $secilenParti -> fatura_no = $request->fatura_no;
 

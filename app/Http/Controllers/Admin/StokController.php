@@ -82,9 +82,50 @@ class StokController extends Controller
         return view('admin.stok_kereste_detay',compact(['datas', 'joinTables', 'musteriDetay','partiID','satisKontrol']));
 
     }
+    public function kereste_cikis_sayfa()
+    {
+        $secilenParti_id = null;
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->get();
+
+
+
+        return view('admin.kereste_cikis',compact(['joinTables','secilenParti_id']));
+
+    }
+
+    public function kereste_cikis_sayfa_idli($id){
+        $secilenParti_id = Kereste_parti::where('id', $id)->get(['id']);
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->get();
+
+
+        return view('admin.kereste_cikis',compact(['secilenParti_id','joinTables']));
+    }
+
+    public function kereste_parti_cikis(Request $request){
+        $secilenParti = Kereste_parti::find($request->blok_no);
+
+        $secilenParti -> durum = "Satıldı";
+        if($secilenParti -> toplam_dm3 > 0)
+            $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
+
+        $secilenParti -> arac_plaka = $request->arac_plaka;
+        $secilenParti -> fatura_no = $request->fatura_no;
+
+        $secilenParti -> save();
+
+        return back()->with("success",'Seçilen Parti Ürün "Satıldı"  olarak işaretlendi');
+    }
+
     public function stok_kereste_cikis(Request $request, $id)
     {
-        $secilenParti = Kereste_parti::find($id);
+        /*$secilenParti = Kereste_parti::find($id);
 
         $secilenParti -> durum = "Satıldı";
         $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
@@ -92,6 +133,10 @@ class StokController extends Controller
         $secilenParti -> save();
 
         return back()->with("success",'Seçilen Parti Ürün "Satıldı"  olarak işaretlendi');
+
+        */
+
+        return "sat sayfası yapıldı";
     }
 
     public function stok_kereste_gerial(Request $request, $id)

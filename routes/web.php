@@ -64,6 +64,10 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     //Route::post('/partigiris/detay', 'admin\KerestePartiGiris@detay')->name('musteripartikaydet');
     Route::post('/partigiris/kaydet', 'admin\KerestePartiGiris@kaydet')->name('musteripartikaydet');
 
+    Route::get('/particikis', 'admin\StokController@kereste_cikis_sayfa')->name('kereste_cikis_sayfa');
+    Route::get('/particikis/{id}', 'admin\StokController@kereste_cikis_sayfa_idli');
+    Route::post('/particikis/sat', 'admin\StokController@kereste_parti_cikis')->name('kereste_parti_cikis');
+
     Route::get('/tomrukgiris', 'admin\TomrukGirisController@tomruk_giris_sayfa')->name('tomrukgiris');
     Route::post('/tomrukgiris/kaydet', 'admin\TomrukGirisController@tomruk_giris_kaydet')->name('tomrukgiriskaydet');
 
@@ -84,6 +88,7 @@ Route::get('/mobile', 'admin\AdminController@mobile_index')->name('mDashboard')-
 Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(function () {
     Route::get('/partigiris', 'admin\Mobile\M_KerestePartiGiris@index')->name('partigiris');
     Route::post('/partigiris/kaydet', 'admin\Mobile\M_KerestePartiGiris@kaydet')->name('kerestepartikaydet');
+
     Route::get('/particikis', 'admin\Mobile\M_StokController@kereste_cikis_sayfa')->name('kerestecikissayfa');
     Route::get('/particikis/{id}', 'admin\Mobile\M_StokController@kereste_cikis_sayfa_idli');
     Route::post('/particikis/sat', 'admin\Mobile\M_StokController@kereste_parti_cikis')->name('keresteparticikis');

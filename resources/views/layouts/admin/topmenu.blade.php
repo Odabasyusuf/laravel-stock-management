@@ -37,6 +37,10 @@
                     <a href="{{url('/')}}/admin/partigiris"> <i class="far fa-plus-square"></i>Kereste Girişi
                     </a>
                 </li>
+                <li class="has-submenu">
+                    <a href="{{url('/')}}/admin/particikis"> <i class="far fa-minus-square"></i>Kereste Çıkışı
+                    </a>
+                </li>
                 <!--
                     <li class="has-submenu">
                         <a href="#"><i class="fe-minus-circle"></i>Tomruk Çıkışı

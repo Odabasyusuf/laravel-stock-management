@@ -136,11 +136,14 @@
             <div class="card-box">
 
                 <div style="position: absolute; right: 40px;">
+                    <a href="{{url('/')}}/mobile/stokmamul/yazdir/{{$partiID}}"><button type="button" class="btn btn-outline-primary btn-md">
+                            <i class="fe-printer" style="font-size: 18px"></i>  Yazdır
+                        </button></a>
                     @if($satisKontrol->durum == 'Depoda')
-                        <button type="button" href="{{url('/')}}/admin/stok/kereste/sat/{{$partiID}}"
-                                class="btn btn-primary btn-lg satis-onay">
+                        <a type="button" href="{{url('/')}}/admin/particikis/{{$partiID}}"
+                                class="btn btn-primary btn-lg">
                             <i class="fe-minus"></i> Seçileni Sat
-                        </button>
+                        </a>
                     @elseif($satisKontrol->durum == 'Satıldı')
 
                         <a type="button" href="{{url('/')}}/admin/stok/kereste/geri/{{$partiID}}"

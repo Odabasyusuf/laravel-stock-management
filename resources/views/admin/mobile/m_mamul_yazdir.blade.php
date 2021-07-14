@@ -141,7 +141,7 @@
         </table>
 
     <div>
-        <div class="toplam_dm3"> Toplam : {{$parti->toplam_dm3}}</div>
+        <div class="toplam_dm3"> Toplam : <?php echo abs($parti->toplam_dm3); ?> dm³</div>
     </div>
 </div>
 
