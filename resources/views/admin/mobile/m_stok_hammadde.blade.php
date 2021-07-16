@@ -36,113 +36,75 @@
 
 
 
+    <!--
+       eski tablo . blade . php
 
-<!--eski tablo
-
-    <div class="row mb-4">
-        <div class="col-12 data-tables-hide-filter">
-            <div class="card">
-
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row view-filter"><div class="col-sm-12"><div class="float-left"></div><div class="float-right"></div><div class="clearfix"></div></div></div><table class="data-table data-tables-pagination responsive nowrap dataTable no-footer dtr-inline collapsed" data-order="[[ 1, &quot;desc&quot; ]]" id="DataTables_Table_0" role="grid" style="width: 740px;">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 261px;"
-                                    aria-label="Name: activate to sort column ascending">Müşteri
-                                </th>
-                                <th class="sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 102px;" aria-sort="descending"
-                                    aria-label="Sales: activate to sort column ascending">Adet
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 104px;"
-                                    aria-label="Stock: activate to sort column ascending">Miktar
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Araç Plaka
-                                </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Nakliye Tezkere Seri/No
-                                </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Ağaç Türü - Sınıf Kodu
-                                </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Ürün Türü
-                                </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" style="width: 149px; display: none;"
-                                    aria-label="Category: activate to sort column ascending">Boy Kodu - Çap Kodu
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            @foreach($joinTables as $parti)
-                                <tr role="row" class="odd">
-                                    <td tabindex="0" style="">
-                                        <p class="list-item-heading">{{$parti->musteriadi}}</p>
-                                    </td><td tabindex="0" style="">
-                                        <p class="list-item-heading" style="text-align: center">{{$parti->adet}}</p>
-                                    </td>
-                                    <td class="sorting_1">
-                                        <p class="text-muted">{{$parti->miktar}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-muted">{{$parti->arac_plaka}}</p>
-                                    </td>
-                                    <td style="display: none;">
-                                        <p class="text-muted">{{$parti->nakliye_seri_no}}</p>
-                                    </td>
-                                    <td style="display: none;">
-                                        <p class="text-muted">{{$parti->agac_turu}} - {{$parti->sinif_kodu}}</p>
-                                    </td>
-                                    <td style="display: none;">
-                                        <p class="text-muted">{{$parti->urun_turu}}</p>
-                                    </td>
-                                    <td style="display: none;">
-                                        <p class="text-muted">{{$parti->boy_kodu}} - {{$parti->cap_kodu}}</p>
-                                    </td>
-                                </tr>
-                            @endforeach
+    -->
 
 
-                            </tbody>
-                        </table>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1></h1>
+
+
+
+
+                <div class="mb-2">
+
+                    <div class="d-block d-md-inline-block stok-tablo-arama-button">
+                        <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+                            <input class="form-control" placeholder="Ara" id="searchDatatable">
+                        </div>
                     </div>
+                    <div class="float-md-right dropdown-as-select" id="pageCountDatatable">
+                        <span class="text-muted text-small">Displaying 1-20 of 40 items</span>
+                        <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="" aria-expanded="false">10</button>
+                        <div class="dropdown-menu dropdown-menu-right" x-placement="top-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(1099px, -71px, 0px);">
+                            <a class="dropdown-item" href="#">3</a>
+                            <a class="dropdown-item active" href="#">10</a>
+                            <a class="dropdown-item" href="#">20</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="separator"></div>
             </div>
         </div>
-    </div>
 
+        <div class="row">
+            <div class="col-12 mb-4 data-table-rows data-tables-hide-filter">
+                <div id="datatableRows_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
 
--->
-
-
-
-    <div class="row mb-4">
-        <div class="col-12 data-tables-hide-filter">
-            <div class="card">
-
-                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row view-filter"><div class="col-sm-12"><div class="float-left"></div><div class="float-right"></div><div class="clearfix"></div></div></div><table class="data-table data-tables-pagination responsive nowrap dataTable no-footer dtr-inline collapsed" data-order="[[ 1, &quot;asc&quot; ]]" id="DataTables_Table_0" role="grid">
+                    <table id="datatableRows" class="data-table nowrap dataTable no-footer dtr-inline"
+                           data-order="[[ 1, &quot;asc&quot; ]]" role="grid" style="width: 1245px;">
                         <thead>
                         <tr role="row">
-                            <th class="" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" style="width: 25px;"
+                            <th style="display:none;" class="" tabindex="0" aria-controls="datatableRows" rowspan="1" colspan="1"
                                 aria-label="Name: activate to sort column ascending">Blok No
-                            </th><th class="" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                     colspan="1" style="text-align: center"
-                                     aria-label="Name: activate to sort column ascending">Detay
                             </th>
-
+                            <th class="sorting_asc" tabindex="0" aria-controls="datatableRows" rowspan="1" colspan="1"
+                                style="width: 144px;" aria-label="Sales: activate to sort column ascending"
+                                aria-sort="descending">Detay
+                            </th>
+                            <th style="display:none;">
+                            </th>
+                            <th style="display:none;">
+                            </th>
+                            <th style="display:none;">
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
 
                         @foreach($joinTables as $parti)
                             <tr role="row" class="odd">
-                                <td tabindex="0" style="">
+                                <td tabindex="0" style="display:none;">
                                     <p class="list-item-heading" style="text-align: center">#{{$parti->id}}</p>
-                                </td><td tabindex="0" style="">
+                                </td><td tabindex="0">
                                     <i class="list-item-heading">
 
 
@@ -153,9 +115,9 @@
                                                         <button class="btn btn-success   mb-1 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample{{$parti->id}}" aria-expanded="true" aria-controls="collapseExample">
                                                             @endif
                                                             @if($parti->durum == "Depoda")
-                                                                {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} adet </span>
+                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} adet </span>
                                                             @else
-                                                                  SATILDI      <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} adet
+                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div>   Çıkış Yapıldı      <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} adet
                                                             @endif
                                                         </button>
                                         </p>
@@ -169,13 +131,13 @@
                                                     <strong>Ağaç Türü - Sınıf :</strong> {{$parti->agac_turu}} <br /> <br />
                                                     <strong>Ürün Kalitesi :</strong> {{$parti->sinif_kodu}} <br /> <br />
                                                     <strong>Boy - Çap :</strong> {{$parti->boy_kodu}} - {{$parti->cap_kodu}}<br /> <br />
-                                                    <a href="#{{$parti->id}}"><button type="button" class="btn btn-outline-primary mb-1 stok-mamul-yazdir-button">
+                                                    <a href="#{{$parti->id}}"><button type="button" class="btn btn-outline-primary mb-1 stok-hammadde-yazdir-button">
                                                             <i class="simple-icon-printer" style="font-size: 20px"></i>
                                                         </button></a>
                                                     <button type="button" class="btn btn-outline-dark">{{$parti->miktar}} m3</button>
                                                     @if($parti->durum == 'Depoda')
-                                                        <a href="#{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button">
-                                                                <i class="iconsminds-right"></i> Seçileni Sat
+                                                        <a href="{{url('/')}}/mobile/hammaddecikis/{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button">
+                                                                <i class="iconsminds-right"></i> Çıkışını Yap
                                                             </button></a>
                                                     @else
 
@@ -190,17 +152,17 @@
 
 
                                     </i>
-                                </td>
+                                </td><td style="display:none;"></td>
+                                <td style="display:none;"></td>
+                                <td style="display:none;"></td>
                             </tr>
                         @endforeach
 
-
                         </tbody>
-                    </table>
-                </div>
+                    </table></div>
             </div>
         </div>
-    </div>
+
 
 
 @endsection

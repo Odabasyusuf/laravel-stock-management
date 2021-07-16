@@ -96,6 +96,10 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(fun
     Route::get('/hammaddegiris', 'admin\Mobile\M_HammaddeController@hammadde_giris_sayfa')->name('hammadde_giris_sayfa');
     Route::post('/hammaddegiris/kaydet', 'admin\Mobile\M_HammaddeController@hammadde_giris_kaydet')->name('hammadde_giris_kaydet');
 
+    Route::get('/hammaddecikis', 'admin\Mobile\M_HammaddeController@hammadde_cikis_sayfa')->name('hammadde_cikis_sayfa');
+    Route::get('/hammaddecikis/{id}', 'admin\Mobile\M_HammaddeController@hammadde_cikis_sayfa_idli');
+    Route::post('/hammaddecikis/sat', 'admin\Mobile\M_HammaddeController@hammadde_parti_cikis')->name('hammadde_parti_cikis');
+
     Route::get('/musteriler', 'admin\Mobile\M_MusteriController@index')->name('musterilistesi');
     Route::get('/musteri/edit/{id}', 'admin\Mobile\M_MusteriController@edit')->name('musteri_duzenle');
     Route::post('/musteri/update/{id}', 'admin\Mobile\M_MusteriController@update');
@@ -103,6 +107,7 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(fun
 
     Route::get('/stokhammadde', 'admin\Mobile\M_StokController@stok_hammadde')->name('stok_hammadde');
     Route::get('/stokmamul', 'admin\Mobile\M_StokController@stok_mamul')->name('stok_mamul');
+    Route::get('/stokmamulmusterisec', 'admin\Mobile\M_StokController@stokmamulmusterisec')->name('stokmamulmusterisec');
     Route::get('/stokmamul/{id}', 'admin\Mobile\M_StokController@stok_mamul_musteri')->name('stok_mamul_musteri');
 
     Route::get('/stokmamul/yazdir/{id}', 'admin\Mobile\M_YazdirController@stok_mamul_yazdir')->name('stok_mamul_yazdir');

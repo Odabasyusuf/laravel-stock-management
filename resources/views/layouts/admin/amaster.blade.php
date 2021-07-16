@@ -46,20 +46,6 @@
 <!-- ========================== JS start ========================== -->
 
 
-<!-- Vendor js -->
-<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
-
-<!--C3 Chart-->
-<script src="{{url('/')}}/assets/admin/adminox/libs/d3/d3.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/libs/c3/c3.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/libs/echarts/echarts.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/js/pages/dashboard.init.js"></script>
-
-
-<!-- Sweet alert js -->
-<script src="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.js"></script>
-<script src="{{url('/')}}/assets/admin/adminox/js/pages/sweet-alerts.init.js"></script>
-
 
 <!-- =========================== JS end =========================== -->
 <!-- ============================================================== -->
@@ -127,6 +113,20 @@
 </div>
 <!-- END wrapper -->
 
+
+<!-- Vendor js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
+
+<!--C3 Chart-->
+<script src="{{url('/')}}/assets/admin/adminox/libs/d3/d3.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/libs/c3/c3.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/libs/echarts/echarts.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/js/pages/dashboard.init.js"></script>
+
+
+<!-- Sweet alert js -->
+<script src="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/js/pages/sweet-alerts.init.js"></script>
 <!-- App js -->
 <script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
 

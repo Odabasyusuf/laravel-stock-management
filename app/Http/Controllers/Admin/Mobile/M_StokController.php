@@ -74,6 +74,14 @@ class M_StokController extends Controller
     }
 
 
+    public function stokmamulmusterisec(){
+        $musteriler = Musteri::orderBy("musteriadi",'asc')->get();
+
+
+        return view('admin.mobile.m_stok_kereste_musterisec',compact(['musteriler']));
+
+    }
+
     public function stok_hammadde(){
         $musteriler = Musteri::orderBy("musteriadi",'asc')->get();
 

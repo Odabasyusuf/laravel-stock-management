@@ -16,29 +16,29 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{route('admin.stok_tomruk')}}"><i class="icon-layers"></i>Stok Tomruk
+                    <a href="{{route('admin.stok_tomruk')}}"><i class="icon-layers"></i>Stok Hammadde
                     </a>
                 </li>
 
 
                 <li class="has-submenu">
                     <a href="{{route('admin.tomrukgiris')}}">
-                        <i class="fe-plus-circle"></i>Tomruk Girişi
+                        <i class="fe-plus-circle"></i>Hammadde Girişi
                     </a>
                 </li>
 
                 <li class="has-submenu">
                     <a href="{{route('admin.stok_kereste')}}">
-                        <i class="icon-layers"></i>Stok Kereste
+                        <i class="icon-layers"></i>Stok Mamül
                     </a>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{url('/')}}/admin/partigiris"> <i class="far fa-plus-square"></i>Kereste Girişi
+                    <a href="{{url('/')}}/admin/partigiris"> <i class="far fa-plus-square"></i>Mamül Girişi
                     </a>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{url('/')}}/admin/particikis"> <i class="far fa-minus-square"></i>Kereste Çıkışı
+                    <a href="{{url('/')}}/admin/particikis"> <i class="far fa-minus-square"></i>Mamül Çıkışı
                     </a>
                 </li>
                 <!--
@@ -47,10 +47,6 @@
                         </a>
                     </li>
 
-                    <li class="has-submenu">
-                        <a href="#"><i class="fe-minus-square"></i>Kereste Çıkışı
-                        </a>
-                    </li>
                 -->
 
             </ul>

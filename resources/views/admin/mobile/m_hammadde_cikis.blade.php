@@ -10,7 +10,7 @@
     @include('admin.flash-message')
 
 
-    <form action="{{ route('admin.mobile.keresteparticikis') }}" method="post"
+    <form action="{{ route('admin.mobile.hammadde_parti_cikis') }}" method="post"
           enctype="multipart/form-data"
           class="form-horizontal">
         @csrf
@@ -19,9 +19,9 @@
         <label for="blok_no" class="col-form-label">Blok Seç</label>
         <select name="blok_no" id="blok_no" class="form-control">
             <option value="" selected="selected">Seçiniz</option>
-            @foreach($joinTables->sortBy('id') as $joinTable)
+           @foreach($joinTables->sortBy('id') as $joinTable)
                 <option value="{{$joinTable->id}}"  @if($secilenParti_id != null) @foreach($secilenParti_id as $aaa) @if($aaa->id == $joinTable->id) selected="selected" @endif @endforeach @endif>
-                    {{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
+                    #{{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->adet}}adet x {{$joinTable->miktar}}m3 - {{$joinTable->durum}}
                 </option>
             @endforeach
         </select>
@@ -40,7 +40,7 @@
 
     <div class="form-group">
         <button type="submit" class="btn btn-success  btn-block mb-1">
-            <i class="simple-icon-check"></i> Onayla
+            <i class="simple-icon-check"></i> Çıkış
         </button>
     </div>
     </form>

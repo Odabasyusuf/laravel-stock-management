@@ -48,4 +48,40 @@ class M_HammaddeController extends Controller
 
         return back()->with('success', 'Parti Girişi Başarılı..');
     }
+
+    public function hammadde_cikis_sayfa(){
+        $secilenParti_id = 0;
+
+        $joinTables = DB::table('musteris')
+            ->join('hammadde_partis','hammadde_partis.musteri_id','=', 'musteris.id')
+            ->select('hammadde_partis.*','musteris.musteriadi')
+            ->get();
+
+        return view('admin.mobile.m_hammadde_cikis',compact('secilenParti_id','joinTables'));
+    }
+
+    public function hammadde_cikis_sayfa_idli($id){
+        $secilenParti_id = Hammadde_parti::where('id', $id)->get(['id']);
+
+        $joinTables = DB::table('musteris')
+            ->join('hammadde_partis','hammadde_partis.musteri_id','=', 'musteris.id')
+            ->select('hammadde_partis.*','musteris.musteriadi')
+            ->get();
+
+        return view('admin.mobile.m_hammadde_cikis',compact('secilenParti_id','joinTables'));
+    }
+
+    public function hammadde_parti_cikis(Request $request){
+        $secilenParti = Hammadde_parti::find($request->blok_no);
+
+        $secilenParti -> durum = "Satıldı";
+        if($request->arac_plaka!=null)
+            $secilenParti -> cikis_arac_plaka = $request->arac_plaka;
+        if($request->fatura_no !=null)
+            $secilenParti -> cikis_fatura_no = $request->fatura_no;
+
+        $secilenParti -> save();
+
+        return back()->with("success",'Seçilen partinin Çıkışı yapıldı');
+    }
 }

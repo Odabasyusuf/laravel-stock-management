@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/font/simple-line-icons/css/simple-line-icons.css" />
 
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/vendor/bootstrap-float-label.min.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/vendor/bootstrap.rtl.only.min.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/vendor/fullcalendar.min.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/vendor/dataTables.bootstrap4.min.css" />

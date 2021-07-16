@@ -18,7 +18,7 @@
             </a>
         </div>
         <div class="col-6 mb-2">
-            <a href="#" class="card mb-2">
+            <a href="{{route('admin.mobile.hammadde_cikis_sayfa')}}" class="card mb-2">
                 <div class="card-body text-center anasayfa-cards">
                     <i class="simple-icon-minus anasayfa-cards-icon" style=""></i><br/>
                     <p class="card-text mt-2 anasayfa-cards-text"  style="">Hammadde Çıkış</p>
@@ -58,9 +58,10 @@
         </div>
     </div>
 
+
     <div class="row">
-        <div class="col-lg-12 col-xl-12">
-            <a href="{{route('admin.mobile.stok_mamul')}}" class="card mb-2">
+        <div class="col-lg-12 col-xl-12" >
+            <a href="{{route('admin.mobile.stokmamulmusterisec')}}" class="card mb-2">
                 <div class="card-body text-center anasayfa-cards">
                     <i class="simple-icon-list anasayfa-cards-icon" style=""></i><br/>
                     <p class="card-text mt-2 anasayfa-cards-text"  style="">Kereste Listesi</p>

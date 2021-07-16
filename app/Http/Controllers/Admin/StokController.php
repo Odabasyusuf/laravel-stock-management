@@ -17,6 +17,8 @@ class StokController extends Controller
 
     public function stok_kereste(){
 
+        $musteriler = Musteri::all();
+
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
             ->select('kereste_partis.*','musteris.musteriadi')
@@ -28,7 +30,7 @@ class StokController extends Controller
 
         //return dd($joinTables);
 
-        return view('admin.stok_kereste',compact(['joinTables','dm3stok','dm3satilan']));
+        return view('admin.stok_kereste',compact(['joinTables','dm3stok','dm3satilan','musteriler']));
 
     }
 

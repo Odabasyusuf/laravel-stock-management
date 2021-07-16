@@ -79,17 +79,27 @@
     </div>
 
     <div class="user d-inline-block">
-        <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+        <a href="{{route('mDashboard')}}"><button class="btn btn-empty p-0" type="button">
+
+            <span> <span class="" style="font-size: 20px">Yenorsan</span>
+
+                    </span>
+        </button></a>
+
+
+
+        <!--  <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
 
             <span> <span class="" style="font-size: 20px">Yenorsan</span>
-                       <!-- <img alt="Profile Picture" src="{{url('/')}}/assets/admin/mobile/img/profiles/l-2.jpg" /> -->
-                    </span>
+
+        </span>
         </button>
 
         <div class="dropdown-menu dropdown-menu-right mt-3">
             <a class="dropdown-item" href="#">Ayarlar</a>
             <a class="dropdown-item" href="#">Çıkış</a>
         </div>
+        -->
     </div>
 </div>

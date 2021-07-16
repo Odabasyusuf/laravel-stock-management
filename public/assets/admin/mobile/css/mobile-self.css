@@ -71,9 +71,33 @@ body {
 }
 .stok-mamul-yazdir-button{
     position: absolute !important;
-    right: 15px !important;
+    right: 40px !important;
     margin-top: -180px !important;
+}.stok-hammadde-yazdir-button{
+    position: absolute !important;
+    right: 15px !important;
+    margin-top: -300px !important;
 }
 .stok-mamul-toplam-dm3{
     left: 1000px !important;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+    visibility: hidden !important;
+}
+table.dataTable.dtr-inline.collapsed>tbody>tr[role=row]>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role=row]>th:first-child:before {
+    visibility: hidden !important;
+}
+
+.data-table-rows table {
+    border-spacing: 0 0rem !important;
+}
+
+.dataTables_wrapper .paginate_button.page-item {
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+}
+
+.stok-tablo-arama-button{
+    float:right;
 }

@@ -25,21 +25,25 @@
             <div class="card-box"> <h4 class="header-title"> Filtreleme </h4> <br />
                 <div class="col-12 text-sm-center">
 
-                    Seç:
-                    <div class="form-group">
-                        <select id="demo-foo-filter-status" class="custom-select" style="">
-                            <option value="">Tümünü Göster</option>
-                            <option value="Depoda">Depodakiler</option>
-                            <option value="Satıldı">Satılanlar</option>
-                        </select>
-                    </div>
-
-                    <br />
                     Ara :
                     <div class="form-group" style="">
                         <input id="demo-foo-search" type="text" placeholder="Depoda Ara" class="form-control"
                                autocomplete="on">
                     </div>
+
+                    <br />
+
+                    Müşteri Seç:
+
+                    <div class="form-group">
+                        <select id="demo-foo-filter-status" class="custom-select" style="">
+                            <option value="">Tümünü Göster</option>
+                            @foreach($musteriler as $musteri)
+                                <option value="{{$musteri->musteriadi}}">{{$musteri->musteriadi}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                 </div>
 
             </div>

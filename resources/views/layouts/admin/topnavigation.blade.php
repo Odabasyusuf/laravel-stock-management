@@ -124,23 +124,7 @@
             </a>
         </div>
 
-        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
 
-            <li class="d-none d-sm-block">
-                <form class="app-search">
-                    <div class="app-search-box">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Arama...">
-                            <div class="input-group-append">
-                                <button class="btn" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </li>
-        </ul>
         <div class="clearfix"></div>
     </div>
 </div>
