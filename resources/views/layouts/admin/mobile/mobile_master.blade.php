@@ -26,7 +26,9 @@
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/dore.light.blueolympic.min.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/main.css" />
     <link rel="stylesheet" href="{{url('/')}}/assets/admin/mobile/css/mobile-self.css" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" sizes="192x192" href="/pwa/img/192x192.png">
+    <link rel="icon" sizes="128x128" href="/pwa/img/128x128.png">
 </head>
 
 <body id="app-container" class="menu-default show-spinner">

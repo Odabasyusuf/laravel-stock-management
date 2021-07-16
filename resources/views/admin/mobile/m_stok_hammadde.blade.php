@@ -64,9 +64,9 @@
                         <span class="text-muted text-small">Displaying 1-20 of 40 items</span>
                         <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="" aria-expanded="false">10</button>
                         <div class="dropdown-menu dropdown-menu-right" x-placement="top-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(1099px, -71px, 0px);">
-                            <a class="dropdown-item" href="#">3</a>
                             <a class="dropdown-item active" href="#">10</a>
                             <a class="dropdown-item" href="#">20</a>
+                            <a class="dropdown-item" href="#">50</a>
                         </div>
                     </div>
 

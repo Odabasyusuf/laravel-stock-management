@@ -52,7 +52,7 @@
             <a href="{{route('admin.mobile.stok_hammadde')}}" class="card mb-2">
                 <div class="card-body text-center anasayfa-cards">
                     <i class="simple-icon-list anasayfa-cards-icon" style=""></i><br/>
-                    <p class="card-text mt-2 anasayfa-cards-text"  style="">Tomruk Listesi</p>
+                    <p class="card-text mt-2 anasayfa-cards-text"  style="">Hammadde Listesi</p>
                 </div>
             </a>
         </div>
@@ -64,7 +64,7 @@
             <a href="{{route('admin.mobile.stokmamulmusterisec')}}" class="card mb-2">
                 <div class="card-body text-center anasayfa-cards">
                     <i class="simple-icon-list anasayfa-cards-icon" style=""></i><br/>
-                    <p class="card-text mt-2 anasayfa-cards-text"  style="">Kereste Listesi</p>
+                    <p class="card-text mt-2 anasayfa-cards-text"  style="">Mamül Listesi</p>
                 </div>
             </a>
         </div>
