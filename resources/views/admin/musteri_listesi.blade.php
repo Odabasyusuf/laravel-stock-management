@@ -23,9 +23,9 @@
                 <p class="sub-header">
                     @include('admin.flash-message')
                 </p>
-                <div class="col-4">
-
-                </div>
+                <p class="sub-header">
+                    Not: Sadece Hammadde veya Kereste bilgisi olmayan müşteriler silinebilir.
+                </p>
 
                 <!-- <div class="mb-3">
                           <div class="row">
@@ -69,11 +69,14 @@
                                         <button type="button" class="btn btn-outline-primary btn-sm" >Düzenle</button>
                                     </a></td>
                                 <td>
-                                    <a href="{{route('admin.musteri_sil', $musteri->id)}}" class="btn btn-outline-danger btn-sm button delete-confirm"> Sil
-                                        <!--
-                                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="return confirm('Tamamen silinecek emin misiniz?')">Sil</button>
-                                        -->
-                                    </a>
+                                    @if($musteriHammaddeVar[$musteri->id]==null && $musteriMamulVar[$musteri->id]==null)
+                                        <a href="{{route('admin.musteri_sil', $musteri->id)}}" class="btn btn-outline-danger btn-sm button delete-confirm"> Sil
+                                            <!--
+                                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="return confirm('Tamamen silinecek emin misiniz?')">Sil</button>
+                                            -->
+                                        </a>
+                                    @endif
+
 
                                 </td>
                             </tr>

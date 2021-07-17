@@ -75,7 +75,7 @@
             <tbody>
             <tr>
                 <td>{{$parti->musteriadi}}</td>
-                <td>{{$parti_id}}</td>
+                <td>{{$parti->blok_no}}</td>
                 <td style="">{{$parti->agac_turu}} {{$parti->urun_kalitesi}}</td>
                 <td style="text-align: center;">04.07.2021</td>
             </tr>

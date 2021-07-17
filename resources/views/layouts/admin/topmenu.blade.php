@@ -35,7 +35,7 @@
 
 
                 <li class="has-submenu">
-                    <a href="{{route('admin.stok_kereste')}}">
+                    <a href="{{route('admin.kereste_musteri_sec')}}">
                         <i class="icon-layers"></i>Mamül Stok
                     </a>
                 </li>

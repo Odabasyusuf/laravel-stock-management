@@ -68,7 +68,10 @@ class KerestePartiGiris extends Controller
         // Girilen musterinin bilgisini cekiyoruz
         $user = DB::table('musteris')->where('musteriadi', $request->musteri_adi)->first();
 
-
+        // Musteriye ait en son blok bulunur ve 1 artırılır
+        $blokNo = DB::table('kereste_partis')->where('musteri_id', $user->id)->orderBy('blok_no', 'desc')->pluck('blok_no')->first();
+        if($blokNo == null) $blokNo = 0;
+        $blokNo = $blokNo+1;
 
 
         $sayac = count($request->toplam_dm);
@@ -91,6 +94,7 @@ class KerestePartiGiris extends Controller
 
         $musteriParti = new Kereste_parti();
         $musteriParti->musteri_id = $user->id;
+        $musteriParti->blok_no = $blokNo;
         $musteriParti->urun_kalitesi = $request->urun_kalitesi;
         $musteriParti->agac_turu = $request->agac_turu;
         $musteriParti->parti_detay = $kayitencode;

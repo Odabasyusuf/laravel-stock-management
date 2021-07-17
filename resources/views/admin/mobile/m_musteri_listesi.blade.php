@@ -22,7 +22,10 @@
                     <p class="mb-2 text-muted text-small">{{$musteri->adres}}</p>
                     <p class="mb-2 text-muted text-small">{{$musteri->tel}}</p>
                     <a href="{{url('/')}}/mobile/musteri/edit/{{$musteri->id}}"><button type="button" class="btn btn-xs btn-outline-primary">Düzenle</button></a>
-                    <a href="{{url('/')}}/mobile/musteri/sil/{{$musteri->id}}"> <button type="button" class="btn btn-xs btn-outline-danger">Sil</button></a>
+                    @if($musteriHammaddeVar[$musteri->id]==null && $musteriMamulVar[$musteri->id]==null)
+                        <a href="{{url('/')}}/mobile/musteri/sil/{{$musteri->id}}"> <button type="button" class="btn btn-xs btn-outline-danger">Sil</button></a>
+                    @endif
+
                     @if($musteri->tel != null)
                         <a href="tel:{{$musteri->tel}}"><i class="simple-icon-call-out musteri-call-icon"></i></a>
                     @endif

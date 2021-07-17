@@ -36,12 +36,18 @@
                     Müşteri Seç:
 
                     <div class="form-group">
-                        <select id="demo-foo-filter-status" class="custom-select" style="">
+                       <!-- <select id="demo-foo-filter-status" class="custom-select" style="">
                             <option value="">Tümünü Göster</option>
                             @foreach($musteriler as $musteri)
                                 <option value="{{$musteri->musteriadi}}">{{$musteri->musteriadi}}</option>
                             @endforeach
-                        </select>
+                        </select> -->
+                           <select class="form-control" data-width="100%" tabindex="-1" onchange="location = this.value;">
+                               <option label="&nbsp;">&nbsp;</option>
+                               @foreach($musteriler->sortBy('id') as $musteri)
+                                   <option value="{{url('/')}}/admin/stok/kereste/musteri/{{$musteri->id}}">{{$musteri->musteriadi}}</option>
+                               @endforeach
+                           </select>
                     </div>
 
                 </div>
@@ -62,10 +68,11 @@
                 <p class="sub-header">
                     Detayları görmek için tablodaki ilgili satıra tıklayın
                 </p>
-                <div class="col-4">
-
+                <style> .asddd { position: absolute; top:20px; right: 50px}</style>
+                <div class="asddd">
+                    <strong>Seçilen Müşteri:</strong>  {{$secilenMusteriAdi}}
                 </div>
-                <strong><u>Tablodaki Parti Sayısı :</u> <label id="toplamSatir"
+                <strong><u>Tablodaki Blok Sayısı :</u> <label id="toplamSatir"
                                                               style="font-size:16px ;margin: 0px 10px;"> </label>
                 </strong>
 
@@ -95,7 +102,7 @@
                            data-page-size="50">
                         <thead>
                         <tr>
-                            <th width="5%">#</th>
+                            <th width="5%">Blok</th>
                             <th data-toggle="true" style="text-align: center;">Müşteri Adı</th>
                             <th data-hide="" style="text-align: center;">Ağaç Türü</th>
                             <th data-hide="" style="text-align: center;">Ürün Kalitesi</th>
@@ -108,11 +115,13 @@
                         <tbody>
                         @foreach($joinTables->sortBy('id') as $joinTable)
                             <tr class='clickable-row satirSay'
-                                data-href='{{url('/')}}/admin/stok/kereste/{{$joinTable->id}}'>
-                                @if($joinTable->id<10)
-                                    <td style="font-size: 13px">0{{$joinTable->id}}</td>
+                                data-href='{{url('/')}}/admin/stok/kereste/detay/{{$joinTable->id}}'>
+                                @if($joinTable->blok_no<10)
+                                    <td style="">00{{$joinTable->blok_no}}</td>
+                                @elseif($joinTable->blok_no<100)
+                                    <td style="">0{{$joinTable->blok_no}}</td>
                                 @else
-                                    <td>{{$joinTable->id}}</td>
+                                    <td>{{$joinTable->blok_no}}</td>
                                 @endif
                                 <td style="text-align: center;">{{$joinTable->musteriadi}}</td>
                                 <td style="text-align: center;">{{$joinTable->agac_turu}}</td>
@@ -146,6 +155,7 @@
 
         <div class="col-md-2">
             <div class="card-box">
+                <h4 class="header-title"> Müşteriye ait </h4> <br />
                 Depoda :  <label id="dm3depo" style="font-size:16px ;margin: 0px 10px; color: #0026ff"> {{$dm3stok}} </label> dm3 <br /><br />
                 Satılan : <label id="dm3satilan" style="font-size:16px ;margin: 0px 10px; color: #0026ff"> {{$dm3satilan}} </label> dm3
             </div>

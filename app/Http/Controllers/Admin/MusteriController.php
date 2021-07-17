@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hammadde_parti;
+use App\Models\Kereste_parti;
 use App\Models\Musteri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,10 +14,20 @@ class MusteriController extends Controller
 
     public function index()
     {
-        // $musteriler = Musteri::all();
-        $musteriler = Musteri::orderBy("musteriadi",'asc')->get();
+        $musteriler = Musteri::all();
+        //$musteriler = Musteri::orderBy("musteriadi",'asc')->get();
 
-        return view('admin.musteri_listesi',compact('musteriler'));
+
+        foreach ($musteriler as $musteri)
+        {
+            $musteriMamulVar[$musteri->id]= Kereste_parti::where('musteri_id','=',$musteri->id)->first();
+        }
+        foreach ($musteriler as $musteri)
+        {
+            $musteriHammaddeVar[$musteri->id]= Hammadde_parti::where('musteri_id','=',$musteri->id)->first();
+        }
+
+        return view('admin.musteri_listesi',compact(['musteriler','musteriMamulVar','musteriHammaddeVar']));
     }
 
 

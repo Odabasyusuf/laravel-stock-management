@@ -21,6 +21,7 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+
     public function index()
     {
         $musteriSay = count(Musteri::orderBy("musteriadi",'asc')->get());

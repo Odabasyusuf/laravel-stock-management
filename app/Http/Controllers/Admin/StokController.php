@@ -35,6 +35,33 @@ class StokController extends Controller
 
     }
 
+    public function kereste_musteri_sec(){
+        $musteriler = Musteri::all();
+
+       return view('admin.stok_kereste_musterisec',compact(['musteriler']));
+
+    }
+
+    public function kereste_musteri_id($id){
+        $secilenMusteriAdi = Musteri::where('id','=',$id)->pluck('musteriadi')->first();
+        $musteriler = Musteri::all();
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->where('musteris.id','=', $id)
+            ->get();
+
+        $dm3stok = Kereste_parti::where('musteri_id','=',$id)->where('durum','Depoda')->sum('toplam_dm3');
+        $dm3satilan = Kereste_parti::where('musteri_id','=',$id)->where('durum','Satıldı')->sum('toplam_dm3');
+
+
+        //return dd($joinTables);
+
+        return view('admin.stok_kereste',compact(['joinTables','dm3stok','dm3satilan','musteriler','secilenMusteriAdi']));
+
+    }
+
     public function stok_kereste_detay($id){
 
         $joinTables = DB::table('musteris')
@@ -83,6 +110,55 @@ class StokController extends Controller
         $partiID = $id;
         //return view('admin.stok_kereste_detay',compact('datas'),compact('joinTables'),compact('musteriDetay'));
         return view('admin.stok_kereste_detay',compact(['datas', 'joinTables', 'musteriDetay','partiID','satisKontrol']));
+
+    }
+    public function stok_kereste_detay_musteri($id){
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id', '=','musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->orderBy('kereste_partis.id','asc')
+            ->get();
+
+        $partiDetaylari = DB::table('kereste_partis')
+            ->where('kereste_partis.id',$id)
+            ->select('parti_detay')
+            ->get();
+
+        $musteriDetay = DB::table('kereste_partis')
+            ->join('musteris','kereste_partis.musteri_id', '=','musteris.id')
+            ->where('kereste_partis.id',$id)
+            ->get();
+
+        $satisKontrol = DB::table('kereste_partis')
+            ->where('kereste_partis.id',$id)
+            ->select('durum')
+            ->first();
+
+
+        //$json_string = stripslashes($partiDetaylari);
+        //return json_decode($partiDetaylari, true);
+
+        $partiDecode = json_decode($partiDetaylari, true);
+
+        $sira1 = $partiDecode[0];
+
+        $datas = array();
+
+        foreach ($sira1 as $s=>$value) {
+            $datas = json_decode($value,true);
+        }
+/*
+       for($i=0;$i<count($datas);$i++)
+       {
+           foreach ($datas[$i] as $data){
+               echo " - ". $data;
+           }
+       }
+*/
+
+        $partiID = $id;
+        //return view('admin.stok_kereste_detay',compact('datas'),compact('joinTables'),compact('musteriDetay'));
+        return view('admin.stok_kereste_detay_musteri',compact(['datas', 'joinTables', 'musteriDetay','partiID','satisKontrol']));
 
     }
     public function kereste_cikis_sayfa()
