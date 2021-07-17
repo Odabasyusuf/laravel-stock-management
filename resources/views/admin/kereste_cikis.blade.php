@@ -15,6 +15,8 @@
 
                 <p class="sub-header">
                     @include('admin.flash-message')
+
+                    <strong>Seçilen Müşteri :</strong>  {{$secilenMusteri}}
                 </p>
                 <div class="col-4">
 
@@ -25,27 +27,43 @@
                       class="form-horizontal">
                 @csrf
 
-                    <div class="form-group col-md-12">
+                <!-- <div class="form-group col-md-12">
                         <label for="blok_no" class="col-form-label">Blok Seç</label>
                         <select name="blok_no" id="blok_no" class="form-control">
                             <option value="" selected="selected">Seçiniz</option>
                             @foreach($joinTables->sortBy('id') as $joinTable)
                                 <option value="{{$joinTable->id}}"  @if($secilenParti_id != null) @foreach($secilenParti_id as $aaa) @if($aaa->id == $joinTable->id) selected="selected" @endif @endforeach @endif>
-                                   @if($joinTable->durum != 'Depoda') {{$joinTable->blok_no}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
-                                   @else {{$joinTable->blok_no}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}} @endif
+                                   {{$joinTable->blok_no}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>-->
+
+                 <div class="form-group col-md-12">
+                        <label for="blok_no" class="col-form-label">Blokları Seç</label>
+                    <div class="dropdown bootstrap-select show-tick show"><select class="selectpicker" multiple=""
+                                                                                  name="deneme_no[]" id="deneme_no"
+                                                                                  data-selected-text-format="count > 3"
+                                                                                  data-style="btn-secondary"
+                                                                                  tabindex="-98" required>
+                            @foreach($joinTables->sortBy('id') as $joinTable)
+                                <option value="{{$joinTable->id}}"  @if($secilenParti_id != null) @foreach($secilenParti_id as $aaa) @if($aaa->id == $joinTable->id) selected="selected" @endif @endforeach @endif>
+                                    #{{$joinTable->blok_no}} → {{$joinTable->toplam_dm3}}dm3
                                 </option>
                             @endforeach
                         </select>
                     </div>
+                    </div>
+
 
                     <div class="form-group col-md-12">
                         <label for="arac_plaka" class="col-form-label">Araç Plaka: </label>
-                        <input type="text" class="form-control " name="arac_plaka" id="arac_plaka" value="" style="">
+                        <input type="text" class="form-control " name="arac_plaka" id="arac_plaka" value="" style="" autocomplete="off">
                     </div>
 
                     <div class="form-group col-md-12">
                         <label for="fatura_no" class="col-form-label">İrsaliye/Fatura No: </label>
-                        <input type="text" class="form-control" name="fatura_no" id="fatura_no" value="" style="">
+                        <input type="text" class="form-control" name="fatura_no" id="fatura_no" value="" style="" autocomplete="off">
                     </div>
 
 

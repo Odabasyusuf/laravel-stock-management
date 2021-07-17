@@ -170,6 +170,9 @@ class StokController extends Controller
         return view('admin.kereste_cikis_musterisec',compact(['musteriler']));
     }
     public function kereste_cikis_sayfa_musteriid($id){
+        $secilenMusteri = Musteri::where('id', $id)->pluck('musteriadi')->first();
+
+
         $secilenParti_id = null;
 
         $joinTables = DB::table('musteris')
@@ -178,7 +181,7 @@ class StokController extends Controller
             ->where('musteris.id','=', $id)
             ->get();
 
-        return view('admin.kereste_cikis',compact(['joinTables','secilenParti_id']));
+        return view('admin.kereste_cikis',compact(['joinTables','secilenParti_id','secilenMusteri']));
     }
 
     public function kereste_cikis_sayfa()
@@ -209,6 +212,39 @@ class StokController extends Controller
     }
 
     public function kereste_parti_cikis(Request $request){
+        $sayac = count($request->deneme_no);
+        $secilenParti = Kereste_parti::find($request->blok_no);
+
+        $kayit = array();
+        for ($i = 0; $i < $sayac; $i++) {
+            if($request->deneme_no[$i] == null  || $request->deneme_no[$i] == 0){
+                continue;
+            }
+            $secilenParti = Kereste_parti::find($request->deneme_no[$i]);
+            $secilenParti->durum = "Satıldı";
+            $secilenParti -> arac_plaka = $request->arac_plaka;
+            $secilenParti -> fatura_no = $request->fatura_no;
+
+            if($secilenParti -> toplam_dm3 > 0)
+                $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
+
+            $secilenParti -> save();
+        }
+
+/*
+
+        $secilenParti -> durum = "Satıldı";
+        if($secilenParti -> toplam_dm3 > 0)
+            $secilenParti -> toplam_dm3 = -1*$secilenParti -> toplam_dm3;
+
+        $secilenParti -> arac_plaka = $request->arac_plaka;
+        $secilenParti -> fatura_no = $request->fatura_no;
+*/
+        //$secilenParti -> save();
+
+        return back()->with("success",'Seçilen Partiler "Satıldı"  olarak işaretlendi');
+    }
+    public function kereste_parti_cikis_yedek(Request $request){
         $secilenParti = Kereste_parti::find($request->blok_no);
 
         $secilenParti -> durum = "Satıldı";

@@ -25,6 +25,7 @@
     <link href="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
     <link href="{{url('/')}}/assets/admin/adminox/libs/select2/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('/')}}/assets/admin/adminox/libs/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
     <link href="{{url('/')}}/assets/admin/adminox/css/bootstrap.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet"/>
     <link href="{{url('/')}}/assets/admin/adminox/css/self.css" rel="stylesheet" type="text/css" id="self-stylesheet"/>
@@ -124,6 +125,7 @@
 <script src="{{url('/')}}/assets/admin/adminox/js/pages/dashboard.init.js"></script>
 
 <script src="{{url('/')}}/assets/admin/adminox/libs/select2/select2.min.js"></script>
+<script src="{{url('/')}}/assets/admin/adminox/libs/bootstrap-select/bootstrap-select.min.js"></script>
 <!-- Sweet alert js -->
 <script src="{{url('/')}}/assets/admin/adminox/libs/sweetalert2/sweetalert2.min.js"></script>
 <script src="{{url('/')}}/assets/admin/adminox/js/pages/sweet-alerts.init.js"></script>
