@@ -85,10 +85,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="">Anasayfa</a></li>
-                                    <li class="breadcrumb-item active">Parti Girişi</li>
+                                    <li class="breadcrumb-item active">Mamül Girişi</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">YENORSAN</h4>
+                            <h4 class="page-title">Mamül Girişi</h4>
                         </div>
                     </div>
                 </div>

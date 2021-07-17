@@ -132,16 +132,18 @@
                                                             <i class="simple-icon-printer" style="font-size: 20px"></i>
                                                         </button></a>
                                                     @if($parti->durum != 'Depoda')
-                                                        <strong>Gönderilen Araç Plakası :</strong> {{$parti->arac_plaka}} <br /> <br />
-                                                        <strong>Çıkış  :</strong> {{$parti->arac_plaka}} <br /> <br />
+                                                        <strong>Gönderilen Araç Plaka :</strong> {{$parti->arac_plaka}} <br /> <br />
+                                                        <strong>Fatura No  :</strong> {{$parti->fatura_no}} <br /> <br />
                                                     @endif
                                                     <button type="button" class="btn btn-outline-dark">{{$parti->toplam_dm3}} dm3</button>
                                                     @if($parti->durum == 'Depoda')
-                                                        <a href="{{url('/')}}/mobile/particikis/{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button">
+                                                        <a href="{{url('/')}}/mobile/particikis/{{$parti->id}}"><button type="button" class="btn btn-success stok-mamul-sat-button">
                                                                 <i class="iconsminds-right"></i> Seçileni Sat
                                                             </button></a>
                                                     @else
-
+                                                        <a href="{{url('/')}}/mobile/mamulparti/sil/{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button" onclick="return confirm('Tamamen silinecek emin misiniz?')">
+                                                                <i class="iconsminds-right"></i> SİL
+                                                            </button></a>
                                                     @endif
 
 

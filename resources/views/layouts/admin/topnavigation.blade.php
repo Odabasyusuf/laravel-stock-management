@@ -41,24 +41,26 @@
                     <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Hoşgeldiniz</h6>
                     </div>
-                    <div class="dropdown-divider"></div>
+
                     <!-- item-->
                     <!--
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-user"></i>
                         <span>Profile</span>
-                    </a>-->
-
+                    </a>
+                    <div class="dropdown-divider"></div>-->
                     <!-- item-->
+                     <!--
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-settings"></i>
                         <span>Ayarlar</span>
                     </a>
+
                     <a href="{{route('mDashboard')}}" class="dropdown-item notify-item">
                         <i class="fas fa-mobile-alt"></i>
                         <span>Mobil Sürüm</span>
                     </a>
-
+                    -->
                     <!-- item-->
                     <!--
                     <a href="javascript:void(0);" class="dropdown-item notify-item">

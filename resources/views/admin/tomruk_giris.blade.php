@@ -159,7 +159,7 @@
                     <div class="form-group col-md-12">
                         <label class="col-form-label" for="urun_turu">Ürün Türü</label>
                         <select name="urun_turu" id="urun_turu" class="form-control">
-                            <option selected="selected">Seçiniz</option>
+                            <option value="" selected="selected">Seçiniz</option>
                             <option>Tomruk</option>
                             <option>Tel Direği</option>
                             <option>Maden Direği</option>
@@ -181,7 +181,7 @@
                     <div class="form-group col-md-12">
                         <label class="col-form-label" for="sinif_kodu">Sınıf Kodu</label>
                         <select name="sinif_kodu" id="sinif_kodu" class="form-control">
-                            <option selected="selected">Seçiniz</option>
+                            <option value="" selected="selected">Seçiniz</option>
                             <option value="1.Sınıf">1.Sınıf</option>
                             <option value="2.Sınıf">2.Sınıf</option>
                             <option value="3.Sınıf">3.Sınıf</option>
@@ -191,7 +191,7 @@
                     <div class="form-group col-md-12">
                         <label class="col-form-label" for="boy_kodu">Boy Kodu</label>
                         <select name="boy_kodu" id="boy_kodu" class="form-control">
-                            <option selected="selected">Seçiniz</option>
+                            <option value="" selected="selected">Seçiniz</option>
                             <option value="Kısa">Kısa</option>
                             <option value="Normal">Normal</option>
                             <option value="Uzun">Uzun</option>
@@ -202,7 +202,7 @@
                     <div class="form-group mb-2 col-md-12">
                         <label class="col-form-label" for="cap_kodu">Çap Kodu</label>
                         <select name="cap_kodu" id="cap_kodu" class="form-control">
-                            <option selected="selected">Seçiniz</option>
+                            <option value=""  selected="selected">Seçiniz</option>
                             <option value="İnce">İnce</option>
                             <option value="Kalın">Kalın</option>
                             <option value="Pacal">Pacal</option>

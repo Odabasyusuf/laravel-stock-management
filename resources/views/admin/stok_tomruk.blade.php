@@ -102,6 +102,7 @@
                             <th data-hide="" style="text-align: center;">Nakliye No</th>
                             <th data-hide="" style="text-align: center;">Miktar x Adet</th>
                             <th data-hide="" style="text-align: center;">Durum</th>
+                            <th data-hide="" style="text-align: center;">Çıkışı Yap</th>
                         </tr>
                         </thead>
 
@@ -131,6 +132,17 @@
                                         <b style="color: green;">{{$joinTable->durum}}</b>
                                     @else
                                         {{$joinTable->durum}}
+                                    @endif
+                                </td>
+                                <td style="text-align: center">
+                                    @if($joinTable->durum != 'Depoda')
+                                        <a href="{{url('/')}}/admin/tomruk/sil/{{$joinTable->id}}">
+                                            <button class="btn btn-danger waves-effect waves-light btn-md" onclick="return confirm('Tamamen silinecek emin misiniz?')">Sil</button>
+                                        </a>
+                                    @else
+                                        <a href="{{url('/')}}/admin/tomrukcikis/{{$joinTable->id}}">
+                                            <button class="btn btn-primary waves-effect waves-light btn-md">Çıkış</button>
+                                        </a>
                                     @endif
                                 </td>
                             </tr>

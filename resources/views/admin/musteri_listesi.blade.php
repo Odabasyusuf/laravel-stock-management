@@ -15,7 +15,7 @@
                 <div style="">
                 <h4 class="header-title"><a href="{{ route('admin.musteri.create') }}">
                     <!-- veya basit rota {{url('/')}}/admin/musteri/ekle/ kullanılabilir  -->
-                        <button type="button" class="btn btn-primary btn-lg"><i class="fe-plus"></i> Müşteri Ekle
+                        <button type="button" class="btn btn-primary btn-lg"><i class="mdi mdi-account-plus" style="font-size: 20px"></i>  Müşteri Ekle
                         </button>
                     </a>
                 </h4>

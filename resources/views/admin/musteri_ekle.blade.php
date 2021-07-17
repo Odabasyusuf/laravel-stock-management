@@ -36,13 +36,13 @@
                     <div class="form-group">
                         <label for="inputEmail4" class="col-form-label">Müşteri Adı</label>
                         <input type="text" class="form-control" value="{{old('musteri_adi')}}" name="musteri_adi" id="musteri_adi"
-                               placeholder="Müşteri Adı" required>
+                               placeholder="Müşteri Adı" autocomplete="off" required >
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="col-form-label">Telefon</label>
                             <input type="text" class="form-control" value="{{old('musteri_tel')}}" name="musteri_tel" id="musteri_tel"
-                                   placeholder="Telefon">
+                                   placeholder="Telefon" autocomplete="off">
                         </div>
 
                         <div class="form-group col-md-6">

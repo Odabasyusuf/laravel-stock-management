@@ -131,16 +131,23 @@
                                                     <strong>Ağaç Türü - Sınıf :</strong> {{$parti->agac_turu}} <br /> <br />
                                                     <strong>Ürün Kalitesi :</strong> {{$parti->sinif_kodu}} <br /> <br />
                                                     <strong>Boy - Çap :</strong> {{$parti->boy_kodu}} - {{$parti->cap_kodu}}<br /> <br />
+                                                    <strong>Gelen Araç Plaka :</strong> {{$parti->arac_plaka}}<br /> <br />
                                                     <a href="#{{$parti->id}}"><button type="button" class="btn btn-outline-primary mb-1 stok-hammadde-yazdir-button">
                                                             <i class="simple-icon-printer" style="font-size: 20px"></i>
                                                         </button></a>
-                                                    <button type="button" class="btn btn-outline-dark">{{$parti->miktar}} m3</button>
+                                                    @if($parti->durum != 'Depoda')
+                                                        <strong>Gönderilen Araç Plaka :</strong> {{$parti->cikis_arac_plaka}} <br /> <br />
+                                                        <strong>Çıkış Fatura No  :</strong> {{$parti->cikis_fatura_no}} <br /> <br />
+                                                    @endif
+                                                    <button type="button" class="btn btn-outline-dark">{{$parti->miktar}} m3 x {{$parti->adet}} adet</button>
                                                     @if($parti->durum == 'Depoda')
-                                                        <a href="{{url('/')}}/mobile/hammaddecikis/{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button">
+                                                        <a href="{{url('/')}}/mobile/hammaddecikis/{{$parti->id}}"><button type="button" class="btn btn-success stok-mamul-sat-button">
                                                                 <i class="iconsminds-right"></i> Çıkışını Yap
                                                             </button></a>
                                                     @else
-
+                                                        <a href="{{url('/')}}/mobile/hammadde/sil/{{$parti->id}}"><button type="button" class="btn btn-danger stok-mamul-sat-button" onclick="return confirm('Tamamen silinecek emin misiniz?')">
+                                                                <i class="iconsminds-right"></i> SİL
+                                                            </button></a>
                                                     @endif
 
 

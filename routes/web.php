@@ -67,6 +67,11 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::get('/tomrukgiris', 'admin\TomrukGirisController@tomruk_giris_sayfa')->name('tomrukgiris');
     Route::post('/tomrukgiris/kaydet', 'admin\TomrukGirisController@tomruk_giris_kaydet')->name('tomrukgiriskaydet');
 
+    Route::get('/tomrukcikis', 'admin\StokController@tomruk_cikis_sayfa')->name('tomrukcikis');
+    Route::get('/tomrukcikis/{id}', 'admin\StokController@tomruk_cikis_sayfa_idli');
+    Route::post('/tomrukcikis/sat', 'admin\StokController@tomruk_parti_cikis')->name('tomruk_parti_cikis');
+
+    Route::get('/tomruk/sil/{id}', 'admin\StokController@tomruk_parti_sil');
 
  //   Route::get('/stok/index', 'admin\StokController@index')->name('stok_index');
     Route::get('/stok/kereste', 'admin\StokController@stok_kereste')->name('stok_kereste');
@@ -89,12 +94,16 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['mobileAdmin'])->gro
     Route::get('/particikis/{id}', 'admin\Mobile\M_StokController@kereste_cikis_sayfa_idli');
     Route::post('/particikis/sat', 'admin\Mobile\M_StokController@kereste_parti_cikis')->name('keresteparticikis');
 
+    Route::get('/mamulparti/sil/{id}', 'admin\Mobile\M_StokController@mamul_parti_sil');
+
     Route::get('/hammaddegiris', 'admin\Mobile\M_HammaddeController@hammadde_giris_sayfa')->name('hammadde_giris_sayfa');
     Route::post('/hammaddegiris/kaydet', 'admin\Mobile\M_HammaddeController@hammadde_giris_kaydet')->name('hammadde_giris_kaydet');
 
     Route::get('/hammaddecikis', 'admin\Mobile\M_HammaddeController@hammadde_cikis_sayfa')->name('hammadde_cikis_sayfa');
     Route::get('/hammaddecikis/{id}', 'admin\Mobile\M_HammaddeController@hammadde_cikis_sayfa_idli');
     Route::post('/hammaddecikis/sat', 'admin\Mobile\M_HammaddeController@hammadde_parti_cikis')->name('hammadde_parti_cikis');
+
+    Route::get('/hammadde/sil/{id}', 'admin\Mobile\M_HammaddeController@hammadde_parti_sil');
 
     Route::get('/musteriler', 'admin\Mobile\M_MusteriController@index')->name('musterilistesi');
     Route::get('/musteri/edit/{id}', 'admin\Mobile\M_MusteriController@edit')->name('musteri_duzenle');

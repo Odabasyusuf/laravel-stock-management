@@ -1,8 +1,8 @@
 @extends('layouts.admin.amaster')
 
-@section('title','Mamül Çıkışı')
+@section('title','Hammadde Çıkışı')
 
-@section('h4baslik','Mamül Çıkışı')
+@section('h4baslik','Hammadde Çıkışı')
 
 @section('content')
 
@@ -20,7 +20,7 @@
 
                 </div>
 
-                <form action="{{ route('admin.kereste_parti_cikis') }}" method="post"
+                <form action="{{ route('admin.tomruk_parti_cikis') }}" method="post"
                       enctype="multipart/form-data"
                       class="form-horizontal">
                 @csrf
@@ -31,7 +31,7 @@
                             <option value="" selected="selected">Seçiniz</option>
                             @foreach($joinTables->sortBy('id') as $joinTable)
                                 <option value="{{$joinTable->id}}"  @if($secilenParti_id != null) @foreach($secilenParti_id as $aaa) @if($aaa->id == $joinTable->id) selected="selected" @endif @endforeach @endif>
-                                    {{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
+                                    #{{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->adet}}adet x {{$joinTable->miktar}}m3 - {{$joinTable->durum}}
                                 </option>
                             @endforeach
                         </select>
@@ -39,12 +39,12 @@
 
                     <div class="form-group col-md-12">
                         <label for="arac_plaka" class="col-form-label">Araç Plaka: </label>
-                        <input type="text" class="form-control " name="arac_plaka" id="arac_plaka" value="" style="">
+                        <input type="text" class="form-control " name="arac_plaka" id="arac_plaka" value="" style="" autocomplete="off">
                     </div>
 
                     <div class="form-group col-md-12">
                         <label for="fatura_no" class="col-form-label">İrsaliye/Fatura No: </label>
-                        <input type="text" class="form-control" name="fatura_no" id="fatura_no" value="" style="">
+                        <input type="text" class="form-control" name="fatura_no" id="fatura_no" value="" style="" autocomplete="off">
                     </div>
 
 

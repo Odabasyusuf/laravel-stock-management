@@ -82,6 +82,14 @@ class M_StokController extends Controller
 
     }
 
+    public function mamul_parti_sil($id){
+        $secilenParti = Kereste_parti::find($id);
+
+        $secilenParti -> Delete();
+
+        return back()->with('success','Seçilen Parti Silindi');
+    }
+
     public function stok_hammadde(){
         $musteriler = Musteri::orderBy("musteriadi",'asc')->get();
 

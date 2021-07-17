@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hammadde_parti;
+use App\Models\Kereste_parti;
+use App\Models\Musteri;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -20,7 +23,15 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('layouts.admin.amaster');
+        $musteriSay = count(Musteri::orderBy("musteriadi",'asc')->get());
+
+        $hammaddeStok = count(Hammadde_parti::where('durum' ,'=','Depoda')->get());
+
+        $mamulStok = count(Kereste_parti::where('durum' ,'=','Depoda')->get());
+
+        $mamulStokDm3 = Kereste_parti::where('durum','Depoda')->sum('toplam_dm3');
+
+        return view('admin.anasayfa',compact(['musteriSay','hammaddeStok','mamulStok','mamulStokDm3']));
     }
     public function mobile_index()
     {

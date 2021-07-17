@@ -84,4 +84,12 @@ class M_HammaddeController extends Controller
 
         return back()->with("success",'Seçilen partinin Çıkışı yapıldı');
     }
+
+    public function hammadde_parti_sil($id){
+        $secilenParti = Hammadde_parti::find($id);
+
+        $secilenParti -> Delete();
+
+        return back()->with('success','Seçilen Parti Silindi');
+    }
 }
