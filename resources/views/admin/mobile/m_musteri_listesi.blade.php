@@ -9,6 +9,11 @@
 
     @include('admin.flash-message')
 
+    <span class="badge badge-secondary">Not:</span> <br />
+    <span style="font-size: 10px">1. Sadece Hammadde veya Kereste bilgisi olmayan müşteriler silinebilir.</span><br />
+    <span style="font-size: 10px">2. Müşteriye tıklayarak kereste stok bilgisine ulaşabilirsiniz.</span>
+
+    <br /><br />
     @foreach($musteriler->sortBy('id') as $musteri)
 
     <div class="card d-flex flex-row mb-4">

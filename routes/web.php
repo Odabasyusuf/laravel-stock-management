@@ -61,6 +61,8 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
     Route::post('/partigiris/kaydet', 'admin\KerestePartiGiris@kaydet')->name('musteripartikaydet');
 
     Route::get('/particikis', 'admin\StokController@kereste_cikis_sayfa')->name('kereste_cikis_sayfa');
+    Route::get('/particikis/musterisec', 'admin\StokController@kereste_cikis_sayfa_musterisec')->name('kereste_cikis_sayfa_musterisec');
+    Route::get('/particikis/musteri/{id}', 'admin\StokController@kereste_cikis_sayfa_musteriid')->name('kereste_cikis_sayfa_musteriid');
     Route::get('/particikis/{id}', 'admin\StokController@kereste_cikis_sayfa_idli');
     Route::post('/particikis/sat', 'admin\StokController@kereste_parti_cikis')->name('kereste_parti_cikis');
 
@@ -94,6 +96,8 @@ Route::name('admin.mobile.')->prefix('mobile')->middleware(['mobileAdmin'])->gro
     Route::post('/partigiris/kaydet', 'admin\Mobile\M_KerestePartiGiris@kaydet')->name('kerestepartikaydet');
 
     Route::get('/particikis', 'admin\Mobile\M_StokController@kereste_cikis_sayfa')->name('kerestecikissayfa');
+    Route::get('/particikis/musterisec', 'admin\Mobile\M_StokController@kereste_cikis_sayfa_musterisec')->name('kerestecikissayfa_musterisec');
+    Route::get('/particikis/musteri/{id}', 'admin\Mobile\M_StokController@kereste_cikis_sayfa_musteriid')->name('kerestecikissayfa_musteriid');
     Route::get('/particikis/{id}', 'admin\Mobile\M_StokController@kereste_cikis_sayfa_idli');
     Route::post('/particikis/sat', 'admin\Mobile\M_StokController@kereste_parti_cikis')->name('keresteparticikis');
 

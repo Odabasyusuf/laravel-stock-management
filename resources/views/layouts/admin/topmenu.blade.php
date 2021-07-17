@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{url('/')}}/admin/particikis"> <i class="far fa-minus-square"></i>Çıkış
+                    <a href="{{url('/')}}/admin/particikis/musterisec"> <i class="far fa-minus-square"></i>Çıkış
                     </a>
                 </li>
 

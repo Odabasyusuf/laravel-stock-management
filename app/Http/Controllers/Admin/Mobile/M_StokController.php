@@ -10,6 +10,22 @@ use Illuminate\Support\Facades\DB;
 
 class M_StokController extends Controller
 {
+    public function kereste_cikis_sayfa_musterisec(){
+        $musteriler = Musteri::all();
+
+        return view('admin.mobile.m_kereste_cikis_musterisec',compact(['musteriler']));
+    }
+    public function kereste_cikis_sayfa_musteriid($id){
+        $secilenParti_id = null;
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->where('musteris.id','=', $id)
+            ->get();
+
+        return view('admin.mobile.m_kereste_cikis',compact(['joinTables','secilenParti_id']));
+    }
 
    public function kereste_cikis_sayfa(){
        $secilenParti_id = null;
@@ -35,6 +51,8 @@ class M_StokController extends Controller
 
         return view('admin.mobile.m_kereste_cikis',compact(['secilenParti_id','joinTables']));
     }
+
+
 
     public function kereste_parti_cikis(Request $request){
         $secilenParti = Kereste_parti::find($request->blok_no);

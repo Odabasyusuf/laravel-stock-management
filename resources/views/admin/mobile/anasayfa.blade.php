@@ -37,7 +37,7 @@
             </a>
         </div>
         <div class="col-6">
-            <a href="{{route('admin.mobile.kerestecikissayfa')}}" class="card mb-3">
+            <a href="{{route('admin.mobile.kerestecikissayfa_musterisec')}}" class="card mb-3">
                 <div class="card-body text-center anasayfa-cards">
                     <i class="simple-icon-minus anasayfa-cards-icon" style=""></i><br/>
                     <p class="card-text mt-2 anasayfa-cards-text"  style="">Mamül Çıkış</p>

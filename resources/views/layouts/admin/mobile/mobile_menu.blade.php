@@ -14,7 +14,8 @@
             </li>
             <br />
             <li>
-                <a href="{{route('admin.mobile.stok_mamul')}}">
+                <!--<a href="{{route('admin.mobile.stok_mamul')}}">-->
+                <a href="{{route('admin.mobile.stokmamulmusterisec')}}">
                     <i class="iconsminds-check"></i> Mamul Stok
                 </a>
             </li>

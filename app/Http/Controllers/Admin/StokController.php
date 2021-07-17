@@ -161,8 +161,29 @@ class StokController extends Controller
         return view('admin.stok_kereste_detay_musteri',compact(['datas', 'joinTables', 'musteriDetay','partiID','satisKontrol']));
 
     }
+
+
+
+    public function kereste_cikis_sayfa_musterisec(){
+        $musteriler = Musteri::all();
+
+        return view('admin.kereste_cikis_musterisec',compact(['musteriler']));
+    }
+    public function kereste_cikis_sayfa_musteriid($id){
+        $secilenParti_id = null;
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->where('musteris.id','=', $id)
+            ->get();
+
+        return view('admin.kereste_cikis',compact(['joinTables','secilenParti_id']));
+    }
+
     public function kereste_cikis_sayfa()
     {
+
         $secilenParti_id = null;
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')

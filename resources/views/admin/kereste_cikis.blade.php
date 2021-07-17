@@ -31,7 +31,8 @@
                             <option value="" selected="selected">Seçiniz</option>
                             @foreach($joinTables->sortBy('id') as $joinTable)
                                 <option value="{{$joinTable->id}}"  @if($secilenParti_id != null) @foreach($secilenParti_id as $aaa) @if($aaa->id == $joinTable->id) selected="selected" @endif @endforeach @endif>
-                                    {{$joinTable->id}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
+                                   @if($joinTable->durum != 'Depoda') {{$joinTable->blok_no}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}}
+                                   @else {{$joinTable->blok_no}} - {{$joinTable->musteriadi}} - {{$joinTable->toplam_dm3}}dm3 - {{$joinTable->durum}} @endif
                                 </option>
                             @endforeach
                         </select>

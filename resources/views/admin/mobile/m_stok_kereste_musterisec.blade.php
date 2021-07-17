@@ -28,13 +28,13 @@
                 </div>
 
                 <br /><br />
-
+<!--
                 <div style="text-align: center" class="col-sm-6">
                     <label>veya</label> <br />
 
                     <a href="{{route('admin.mobile.stok_mamul')}}"> <button type="button" class="btn btn-primary btn-lg mb-1">HEPSİNİ GÖRÜNTÜLE</button></a>
                 </div>
-
+-->
             </div>
         </div>
     </div>
