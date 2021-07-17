@@ -18,14 +18,6 @@ Route::get('/', function () {
     return redirect('/admin');
 });
 
-Route::get('/admin/deneme', function () {
-    return view('admin/home');
-});
-
-Route::get('/admin/deneme2', function () {
-    return view('admin/musteri_parti_1');
-});
-
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -37,6 +29,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+
+
 // Giriş Çıkış İşlemleri
 Auth::routes();
 //Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('dashboard');
@@ -45,7 +39,9 @@ Route::get('/admin/login', 'admin\LoginController@index')->name('admin.login');
 Route::post('/admin/login', 'admin\LoginController@login')->name('admin.login');
 Route::get('/admin/logout', 'admin\LoginController@logout')->name('admin.logout');
 
-
+Route::get('/mobile/login', 'Admin\Mobile\M_LoginController@index');
+Route::post('/mobile/login', 'Admin\Mobile\M_LoginController@login');
+Route::get('/mobile/logout', 'Admin\Mobile\M_LoginController@logout');
 
 //Route::get('/admin/musteriler', 'admin\MusteriController@index')->name('musteriler')->middleware(['admin']);
 //Route::resource('admin/musteri', admin\MusteriController::class);
@@ -83,9 +79,9 @@ Route::name('admin.')->prefix('admin')->middleware(['admin'])->group(function ()
 });
 
 // Tüm Admin Mobile rotaları
-Route::get('/mobile', 'admin\AdminController@mobile_index')->name('mDashboard')->middleware(['admin']);
+Route::get('/mobile', 'admin\AdminController@mobile_index')->name('mDashboard')->middleware(['mobileAdmin']);
 
-Route::name('admin.mobile.')->prefix('mobile')->middleware(['admin'])->group(function () {
+Route::name('admin.mobile.')->prefix('mobile')->middleware(['mobileAdmin'])->group(function () {
     Route::get('/partigiris', 'admin\Mobile\M_KerestePartiGiris@index')->name('partigiris');
     Route::post('/partigiris/kaydet', 'admin\Mobile\M_KerestePartiGiris@kaydet')->name('kerestepartikaydet');
 

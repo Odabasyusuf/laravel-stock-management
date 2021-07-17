@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Yenorsan - Giriş</title>
+    <title>Yenorsan - Mobile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
     <meta content="Coderthemes" name="author"/>
@@ -19,7 +19,12 @@
           id="app-stylesheet"/>
 
 </head>
-
+<style>
+    .bg-primary {
+        background: url("{{url('/')}}/assets/admin/adminox/images/login-img.jpg")!important;
+        background-repeat: no-repeat;
+    }
+</style>
 <body class="authentication-bg bg-primary authentication-bg-pattern d-flex align-items-center pb-0 vh-100">
 
 <div class="home-btn d-none d-sm-block">
@@ -40,8 +45,8 @@
                             <div class="account-logo-box">
                                 <div class="text-center">
 
-                                    <img src="{{url('/')}}/assets/admin/adminox/images/logo-dark-y.png" alt=""
-                                         height="30">
+                                    <img src="{{url('/')}}/assets/admin/adminox/images/yenorsan-mobile.png" alt=""
+                                         height="30" style="width: 164px; height: 52px">
 
                                 </div>
                             </div>
@@ -60,7 +65,7 @@
                                     </divmt-4>
 
                                     <div class="account-content mt-4">
-                                        <form action="{{url('/')}}/admin/login" method="post" class="form-horizontal">
+                                        <form action="{{url('/')}}/mobile/login" method="post" class="form-horizontal">
                                             @csrf
                                             <div class="form-group row">
                                                 <div class="col-12">
@@ -111,7 +116,6 @@
                                         -->
 
 
-
                                     </div>
                             </div>
                         </div>
@@ -128,11 +132,11 @@
     <!-- end page -->
 </div>
 
-    <!-- Vendor js -->
-    <script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
+<!-- Vendor js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/vendor.min.js"></script>
 
-    <!-- App js -->
-    <script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
+<!-- App js -->
+<script src="{{url('/')}}/assets/admin/adminox/js/app.min.js"></script>
 
 </body>
 
