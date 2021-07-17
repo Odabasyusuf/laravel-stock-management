@@ -60,7 +60,7 @@
 
                 </div>
                 <p class="sub-header">
-
+                    Detayları görmek için tablodaki ilgili satıra tıklayın
                 </p>
                 <div class="col-4">
 

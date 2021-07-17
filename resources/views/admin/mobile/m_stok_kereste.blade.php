@@ -115,16 +115,16 @@
                                                         <button class="btn btn-success   mb-1 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample{{$parti->id}}" aria-expanded="true" aria-controls="collapseExample">
                                                             @endif
                                                             @if($parti->durum == "Depoda")
-                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
+                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
                                                             @else
-                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
+                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
                                                             @endif
                                                         </button>
                                         </p>
                                         <div class="collapse" id="collapseExample{{$parti->id}}" style="">
                                             <div class="p-4 border mt-4">
                                                 <p class="mb-0">
-                                                    <strong>Blok No :</strong> {{$parti->id}} <br /> <br />
+                                                    <strong>Blok No :</strong> {{$parti->blok_no}} <br /> <br />
                                                     <strong>Müşteri Adı :</strong> {{$parti->musteriadi}} <br /> <br />
                                                     <strong>Ağaç Türü :</strong> {{$parti->agac_turu}} <br /> <br />
                                                     <strong>Ürün Kalitesi :</strong> {{$parti->urun_kalitesi}} <br /> <br />

@@ -28,7 +28,7 @@
 
                 </div>
                 <p class="sub-header">
-
+                    Detayları görmek için tablodaki ilgili satıra tıklayın
                 </p>
                 <div class="col-4">
 
@@ -170,7 +170,11 @@
                     @foreach($musteriDetay as $musteri)
                         <strong>Müşteri: </strong> {{$musteri->musteriadi}}&emsp;&emsp;
                         <strong>Müşteri Tel: </strong> {{$musteri->tel}}&emsp;&emsp;
-                        <strong>Ürün Kalitesi: </strong> {{$musteri->urun_kalitesi}}
+                        <strong>Ürün Kalitesi: </strong> {{$musteri->urun_kalitesi}}&emsp;&emsp;<br /><br />
+                    @if($musteri->durum != 'Depoda')
+                        <strong>Çıkış Araç Plaka: </strong> {{$musteri->arac_plaka}}&emsp;&emsp;
+                        <strong>Çıkış Fatura No: </strong> {{$musteri->fatura_no}}&emsp;&emsp;
+                        @endif
                     @endforeach
                 </p>
                 <div class="col-4">
