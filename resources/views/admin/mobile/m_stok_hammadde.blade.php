@@ -114,10 +114,25 @@
                                                     @else
                                                         <button class="btn btn-success   mb-1 btn-block" type="button" data-toggle="collapse" data-target="#collapseExample{{$parti->id}}" aria-expanded="true" aria-controls="collapseExample">
                                                             @endif
-                                                            @if($parti->durum == "Depoda")
-                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} adet </span>
+                                                            @if($parti->id<10)
+                                                                @if($parti->durum == "Depoda")
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#00{{$parti->id}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} Adet </span></div>
+                                                                @else
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#00{{$parti->id}} </strong></div>   Çıkış Yapıldı   <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} Adet </span></div>
+                                                                @endif
+                                                            @elseif($parti->id<100)
+                                                                @if($parti->durum == "Depoda")
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#0{{$parti->id}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} Adet </span></div>
+
+                                                                @else
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#0{{$parti->id}} </strong></div>   Çıkış Yapıldı   <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} Adet </span></div>
+                                                                @endif
                                                             @else
-                                                                <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div>   Çıkış Yapıldı      <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} adet
+                                                                @if($parti->durum == "Depoda")
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} Adet </span></div>
+                                                                @else
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->id}} </strong></div>   Çıkış Yapıldı   <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->miktar}} m³ x {{$parti->adet}} Adet </span></div>
+                                                                @endif
                                                             @endif
                                                         </button>
                                         </p>
@@ -136,6 +151,7 @@
                                                             <i class="simple-icon-printer" style="font-size: 20px"></i>
                                                         </button></a>
                                                     @if($parti->durum != 'Depoda')
+                                                        <strong>Çıkış Tarihi  :</strong> {{substr($parti->updated_at, 0, 10)}} <br /> <br />
                                                         <strong>Gönderilen Araç Plaka :</strong> {{$parti->cikis_arac_plaka}} <br /> <br />
                                                         <strong>Çıkış Fatura No  :</strong> {{$parti->cikis_fatura_no}} <br /> <br />
                                                     @endif
@@ -153,7 +169,9 @@
 
 
 
-                                                </p>
+
+
+                                                    </p>
                                             </div>
                                         </div>
 

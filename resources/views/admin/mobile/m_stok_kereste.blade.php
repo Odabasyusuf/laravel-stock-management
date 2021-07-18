@@ -116,22 +116,22 @@
                                                             @endif
                                                             @if($parti->blok_no<10)
                                                                 @if($parti->durum == "Depoda")
-                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#00{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#00{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3</span></div>
                                                                 @else
-                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#00{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#00{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3</span></div>
                                                                 @endif
                                                             @elseif($parti->blok_no<100)
                                                                 @if($parti->durum == "Depoda")
-                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#0{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#0{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3</span></div>
                                                                 @else
-                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#0{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#0{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3</span></div>
                                                                 @endif
                                                             @else
                                                                 @if($parti->durum == "Depoda")
-                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span>
+                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->blok_no}} </strong></div> {{$parti->musteriadi}}  |  {{$parti->durum}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3</span></div>
                                                                 @else
-                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}     <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3
-                                                            @endif
+                                                                                                    <div style="float: left;margin-left: -10px;margin-right: 5px"> <strong>#{{$parti->blok_no}} </strong></div>    SATILDI  |  {{substr($parti->updated_at, 0, 10)}}  <div style="float: right;margin-right: 0px">  <span class="badge badge-light"> {{$parti->toplam_dm3}} dm3 </span></div>
+                                                                @endif
                                                             @endif
 
                                                         </button>
