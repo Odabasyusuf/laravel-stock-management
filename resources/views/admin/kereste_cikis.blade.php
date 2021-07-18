@@ -42,7 +42,7 @@
                  <div class="form-group col-md-12">
                         <label for="blok_no" class="col-form-label">Blokları Seç</label>
                     <div class="dropdown bootstrap-select show-tick show"><select class="selectpicker" multiple=""
-                                                                                  name="deneme_no[]" id="deneme_no"
+                                                                                  name="blok_no[]" id="blok_no"
                                                                                   data-selected-text-format="count > 3"
                                                                                   data-style="btn-secondary"
                                                                                   tabindex="-98" required>

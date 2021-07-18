@@ -212,15 +212,15 @@ class StokController extends Controller
     }
 
     public function kereste_parti_cikis(Request $request){
-        $sayac = count($request->deneme_no);
+        $sayac = count($request->blok_no);
         $secilenParti = Kereste_parti::find($request->blok_no);
 
         $kayit = array();
         for ($i = 0; $i < $sayac; $i++) {
-            if($request->deneme_no[$i] == null  || $request->deneme_no[$i] == 0){
+            if($request->blok_no[$i] == null  || $request->blok_no[$i] == 0){
                 continue;
             }
-            $secilenParti = Kereste_parti::find($request->deneme_no[$i]);
+            $secilenParti = Kereste_parti::find($request->blok_no[$i]);
             $secilenParti->durum = "Satıldı";
             $secilenParti -> arac_plaka = $request->arac_plaka;
             $secilenParti -> fatura_no = $request->fatura_no;
