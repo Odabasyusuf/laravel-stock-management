@@ -162,28 +162,6 @@ class StokController extends Controller
 
     }
 
-
-
-    public function kereste_cikis_sayfa_musterisec(){
-        $musteriler = Musteri::all();
-
-        return view('admin.kereste_cikis_musterisec',compact(['musteriler']));
-    }
-    public function kereste_cikis_sayfa_musteriid($id){
-        $secilenMusteri = Musteri::where('id', $id)->pluck('musteriadi')->first();
-
-
-        $secilenParti_id = null;
-
-        $joinTables = DB::table('musteris')
-            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
-            ->select('kereste_partis.*','musteris.musteriadi')
-            ->where('musteris.id','=', $id)
-            ->get();
-
-        return view('admin.kereste_cikis',compact(['joinTables','secilenParti_id','secilenMusteri']));
-    }
-
     public function kereste_cikis_sayfa()
     {
 
@@ -199,16 +177,46 @@ class StokController extends Controller
 
     }
 
-    public function kereste_cikis_sayfa_idli($id){
-        $secilenParti_id = Kereste_parti::where('id', $id)->get(['id']);
+
+    public function kereste_cikis_sayfa_musterisec(){
+        $musteriler = Musteri::all();
+
+        return view('admin.kereste_cikis_musterisec',compact(['musteriler']));
+    }
+    public function kereste_cikis_sayfa_musteriid($id){
+        // Bu metod menüden mamül çıkış sayfası
+
+        $secilenMusteri = Musteri::where('id', $id)->pluck('musteriadi')->first();
+
+
+        $secilenParti_id = null;
 
         $joinTables = DB::table('musteris')
             ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
             ->select('kereste_partis.*','musteris.musteriadi')
+            ->where('musteris.id','=', $id)
+            ->get();
+
+        return view('admin.kereste_cikis',compact(['joinTables','secilenParti_id','secilenMusteri']));
+    }
+
+
+    public function kereste_cikis_sayfa_idli($id){
+        // Bu metod kereste parti detay sayfasından "Seçileni Sat" butonu ile yönlendirme
+
+        $secilenParti_id = Kereste_parti::where('id', $id)->get(['id']);
+
+        $secilenMusteriID = Kereste_parti::where('id', $id)->pluck('musteri_id')->first();
+        $secilenMusteri = Musteri::where('id', $secilenMusteriID)->pluck('musteriadi')->first();
+
+        $joinTables = DB::table('musteris')
+            ->join('kereste_partis','kereste_partis.musteri_id','=', 'musteris.id')
+            ->select('kereste_partis.*','musteris.musteriadi')
+            ->where('musteris.id','=', $secilenMusteriID)
             ->get();
 
 
-        return view('admin.kereste_cikis',compact(['secilenParti_id','joinTables']));
+        return view('admin.kereste_cikis',compact(['secilenParti_id','joinTables','secilenMusteri']));
     }
 
     public function kereste_parti_cikis(Request $request){

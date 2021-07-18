@@ -20,7 +20,9 @@
     <div class="row">
         <!-- Parti Listesi -->
         <div class="col-md-2">
-            <a href="{{ url()->previous() }}"><button class="btn btn-primary waves-effect waves-light mr-1" type="submit"><i class="dripicons-arrow-thin-left"></i> Geri</button></a>
+            <a href="{{url('/')}}/admin/stok/kereste/musteri/{{$musteriDetay[0]->musteri_id}}"><button class="btn btn-primary waves-effect waves-light mr-1" type="submit">
+                    <i class="dripicons-arrow-thin-left"></i> Geri</button>
+            </a>
         </div>
 
         <!-- Parti Detayı -->
